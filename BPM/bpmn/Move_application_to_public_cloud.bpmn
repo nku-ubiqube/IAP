@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn:process id="BPM_PROCESS_138_1585918059121" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_0fqonbl</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_1dsx6b0" name="Deploy VNF on public cloud">
+      <bpmn:incoming>SequenceFlow_0fqonbl</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1ye3sab</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_0fqonbl" sourceRef="StartEvent_1" targetRef="Task_1dsx6b0" />
+    <bpmn:task id="Task_0dc5jnm" name="Configure access policy on VNF">
+      <bpmn:incoming>SequenceFlow_1ye3sab</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_10csk1l</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_1ye3sab" sourceRef="Task_1dsx6b0" targetRef="Task_0dc5jnm" />
+    <bpmn:task id="Task_1rybvxe" name="Update PNF routing policy">
+      <bpmn:incoming>SequenceFlow_10csk1l</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_148j2iy</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_10csk1l" sourceRef="Task_0dc5jnm" targetRef="Task_1rybvxe" />
+    <bpmn:task id="Task_1lq1cwb" name="Update uCPE-VNF routing policy">
+      <bpmn:incoming>SequenceFlow_148j2iy</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_089pdfj</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_148j2iy" sourceRef="Task_1rybvxe" targetRef="Task_1lq1cwb" />
+    <bpmn:endEvent id="EndEvent_1q6qohd">
+      <bpmn:incoming>SequenceFlow_089pdfj</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_089pdfj" sourceRef="Task_1lq1cwb" targetRef="EndEvent_1q6qohd" />
+    <bpmn:textAnnotation id="TextAnnotation_1thxyor">
+      <bpmn:text>update the Flexiwan router to route traffic to internet</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_00nwn8i" sourceRef="Task_1lq1cwb" targetRef="TextAnnotation_1thxyor" />
+    <bpmn:textAnnotation id="TextAnnotation_038ru34">
+      <bpmn:text>update the Cisco 2900 router to route the traffic to internet</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0uhmhrr" sourceRef="Task_1rybvxe" targetRef="TextAnnotation_038ru34" />
+    <bpmn:textAnnotation id="TextAnnotation_1xdjjd8">
+      <bpmn:text>Configure the Fortigate FW with a D-NAT to the app</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_15u6jql" sourceRef="Task_0dc5jnm" targetRef="TextAnnotation_1xdjjd8" />
+    <bpmn:textAnnotation id="TextAnnotation_12sqsfv">
+      <bpmn:text>Launch an Fortigate instance on AWS</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0jbu0x3" sourceRef="Task_1dsx6b0" targetRef="TextAnnotation_12sqsfv" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="PLACEHOLDER_PROCESS_ID">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1dsx6b0_di" bpmnElement="Task_1dsx6b0">
+        <dc:Bounds x="310" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0fqonbl_di" bpmnElement="SequenceFlow_0fqonbl">
+        <di:waypoint x="209" y="120" />
+        <di:waypoint x="310" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_0dc5jnm_di" bpmnElement="Task_0dc5jnm">
+        <dc:Bounds x="490" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1ye3sab_di" bpmnElement="SequenceFlow_1ye3sab">
+        <di:waypoint x="410" y="120" />
+        <di:waypoint x="490" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_1rybvxe_di" bpmnElement="Task_1rybvxe">
+        <dc:Bounds x="650" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_10csk1l_di" bpmnElement="SequenceFlow_10csk1l">
+        <di:waypoint x="590" y="120" />
+        <di:waypoint x="650" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_1lq1cwb_di" bpmnElement="Task_1lq1cwb">
+        <dc:Bounds x="810" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_148j2iy_di" bpmnElement="SequenceFlow_148j2iy">
+        <di:waypoint x="750" y="120" />
+        <di:waypoint x="810" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_1q6qohd_di" bpmnElement="EndEvent_1q6qohd">
+        <dc:Bounds x="992" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_089pdfj_di" bpmnElement="SequenceFlow_089pdfj">
+        <di:waypoint x="910" y="120" />
+        <di:waypoint x="992" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_1thxyor_di" bpmnElement="TextAnnotation_1thxyor">
+        <dc:Bounds x="940" y="-53" width="100" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_00nwn8i_di" bpmnElement="Association_00nwn8i">
+        <di:waypoint x="898" y="80" />
+        <di:waypoint x="957" y="17" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_038ru34_di" bpmnElement="TextAnnotation_038ru34">
+        <dc:Bounds x="750" y="-60" width="100" height="84" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0uhmhrr_di" bpmnElement="Association_0uhmhrr">
+        <di:waypoint x="729" y="80" />
+        <di:waypoint x="770" y="24" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_1xdjjd8_di" bpmnElement="TextAnnotation_1xdjjd8">
+        <dc:Bounds x="550" y="-53" width="100" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_15u6jql_di" bpmnElement="Association_15u6jql">
+        <di:waypoint x="557" y="80" />
+        <di:waypoint x="585" y="17" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_12sqsfv_di" bpmnElement="TextAnnotation_12sqsfv">
+        <dc:Bounds x="350" y="-53" width="100" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0jbu0x3_di" bpmnElement="Association_0jbu0x3">
+        <di:waypoint x="372" y="80" />
+        <di:waypoint x="390" y="17" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
