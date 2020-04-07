@@ -7,7 +7,7 @@ require_once '/opt/fmc_repository/Process/Reference/Common/common.php';
 
 function list_args()
 {
-}
+} 
 
 $instance_id = $context["InstanceId"];
 $elastic_ip_id = $context["elastic_ip_id"];
