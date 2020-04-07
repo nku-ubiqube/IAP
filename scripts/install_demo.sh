@@ -12,14 +12,15 @@ main() {
 	# install the Public Cloud WF and MS
 	cd /opt/fmc_repository
 	git clone https://github.com/ubiqube/IAP.git github_ubiqube_aip_public_cloud
+	### WF
 	cd /opt/fmc_repositoryProcess/
 	ln -fs ../github_aip_public_cloud/Workflows/Public_Cloud Public_Cloud
 	ln -fs ../github_aip_public_cloud/Workflows/.meta_Public_Cloud .meta_Public_Cloud
 	chown -R ncuser.ncuser /opt/fmc_repository/* /opt/fmc_repository/.* 
-
+    ### MS
 	cd /opt/fmc_repository/CommandDefinition/	
-	ln -fs ../github_aip_public_cloud/Microservices/AWS AWS
-	ln -fs ../github_aip_public_cloud/Microservices/.meta_AWS .meta_AWS
+	ln -fs ../github_aip_public_cloud/Microservices/IAP IAP
+	ln -fs ../github_aip_public_cloud/Microservices/.meta_IAP .meta_IAP
 
 	# install DA
 	cd /opt/sms/bin/php ; 
