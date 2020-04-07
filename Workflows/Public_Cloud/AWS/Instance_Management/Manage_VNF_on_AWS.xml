@@ -165,7 +165,7 @@
 		<compensation/>
 	</process>
 
-	<process name="Process/IAP/Public_Cloud/AWS_WF/Process_CREATE">
+	<process name="Process/IAP_Public_Cloud/AWS_WF/Process_CREATE">
 		<visibility>5</visibility>
 		<displayName>Launch Instance</displayName>
 		<icon/>
