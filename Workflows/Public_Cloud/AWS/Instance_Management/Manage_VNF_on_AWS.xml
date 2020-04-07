@@ -8,7 +8,7 @@
     <executionMode>TRANSACTION</executionMode>
     <group>Public Cloud|AWS</group>
     <icon>/images/eclipseIcons/page_obj.gif</icon>
-    <name>Instance Management on AWS</name>
+    <name>Public Cloud VNF Management</name>
     <order>10000</order>
     <poolId>0</poolId>
     <readVariableVisibility>5</readVariableVisibility>
