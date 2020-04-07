@@ -44,12 +44,12 @@
         <section>Instantiate VNFC</section>
       </sections>
     </variable>
-    <variable default="c5.large" displayName="Instance Type" displayOrder="3" isMandatory="true" maxLength="100" name="params.InstanceType" numberOfRowMax="0" startIncrement="0" type="String">
+    <variable default="c5.large" displayName="Instance Type" displayOrder="3" editable="false" isMandatory="true" maxLength="100" name="params.InstanceType" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
       <values>
-        <value>t2.small</value>
-        <value>c5.large</value>
-        <value>c5.xlarge</value>
-        <value>c5.2xlarge</value>
+        <value displayValue="t2.small">t2.small</value>
+        <value displayValue="c5.large">c5.large</value>
+        <value displayValue="c5.xlarge">c5.xlarge</value>
+        <value displayValue="c5.2xlarge">c5.2xlarge</value>
       </values>
       <sections>
         <section>Instantiate VNFC</section>
@@ -76,12 +76,12 @@
         <class>subnets</class>
       </classes>
     </variable>
-    <variable default="3.115.192.248" displayName="Elastic Ip" displayOrder="7" maxLength="100" name="params.elastic_ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable default="eni-0969d4b89e64ee004" displayName="Lan Interface" displayOrder="7" maxLength="100" name="params.interface_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
       <sections>
         <section>Instantiate VNFC</section>
       </sections>
     </variable>
-    <variable default="eni-0969d4b89e64ee004" displayName="Lan Interface" displayOrder="8" maxLength="100" name="params.interface_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable default="3.115.192.248" displayName="VNF Ip Address" displayOrder="8" isUserLocked="true" maxLength="100" name="params.device_ip_address" numberOfRowMax="0" startIncrement="0" type="String">
       <sections>
         <section>Instantiate VNFC</section>
       </sections>
@@ -101,47 +101,42 @@
         <section>Create matching MSA device</section>
       </sections>
     </variable>
-    <variable displayName="Device Ip Address" displayOrder="12" isUserLocked="true" maxLength="100" name="params.device_ip_address" numberOfRowMax="0" startIncrement="0" type="String">
+    <variable default="admin" displayName="Login" displayOrder="12" maxLength="100" name="params.login" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
       <sections>
         <section>Create matching MSA device</section>
       </sections>
     </variable>
-    <variable default="admin" displayName="Login" displayOrder="13" maxLength="100" name="params.login" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
+    <variable displayName="Password" displayOrder="13" maxLength="100" name="params.password" numberOfRowMax="0" startIncrement="0" type="Password" visible="false">
       <sections>
         <section>Create matching MSA device</section>
       </sections>
     </variable>
-    <variable displayName="Password" displayOrder="14" maxLength="100" name="params.password" numberOfRowMax="0" startIncrement="0" type="Password" visible="false">
+    <variable default="AZERTY123456789" displayName="New Password" displayOrder="14" editable="false" isMandatory="true" maxLength="100" name="params.new_password" numberOfRowMax="0" startIncrement="0" type="Password" visible="false">
       <sections>
         <section>Create matching MSA device</section>
       </sections>
     </variable>
-    <variable default="AZERTY123456789" displayName="New Password" displayOrder="15" isMandatory="true" maxLength="100" name="params.new_password" numberOfRowMax="0" startIncrement="0" type="Password">
+    <variable default="UBIA138" displayName="Customer Id" displayOrder="15" editable="false" isMandatory="true" maxLength="100" name="params.customer_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Customer">
       <sections>
         <section>Create matching MSA device</section>
       </sections>
     </variable>
-    <variable default="UBIA138" displayName="Customer Id" displayOrder="16" editable="false" isMandatory="true" maxLength="100" name="params.customer_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Customer">
+    <variable default="myCommunity" displayName="Snmp Community" displayOrder="16" editable="false" maxLength="100" name="params.snmp_community" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
       <sections>
         <section>Create matching MSA device</section>
       </sections>
     </variable>
-    <variable default="myCommunity" displayName="Snmp Community" displayOrder="17" maxLength="100" name="params.snmp_community" numberOfRowMax="0" startIncrement="0" type="String">
-      <sections>
-        <section>Create matching MSA device</section>
-      </sections>
-    </variable>
-    <variable displayName="Device Id" displayOrder="18" isUserLocked="true" maxLength="100" name="params.device_id" numberOfRowMax="0" startIncrement="0" type="Device" visible="false">
+    <variable displayName="Device Id" displayOrder="17" isUserLocked="true" maxLength="100" name="params.device_id" numberOfRowMax="0" startIncrement="0" type="Device" visible="false">
       <sections>
         <section>Do MSA device initial provisioning</section>
       </sections>
     </variable>
-    <variable default="false" displayName="Force" displayOrder="19" maxLength="100" name="params.force" numberOfRowMax="0" startIncrement="0" type="Boolean">
+    <variable default="false" displayName="Force" displayOrder="18" maxLength="100" name="params.force" numberOfRowMax="0" startIncrement="0" type="Boolean">
       <sections>
         <section>Stop VNFCi</section>
       </sections>
     </variable>
-    <variable default="FGT_FW" displayName="Profile Reference" displayOrder="20" maxLength="100" name="params.conf_profile_reference" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable default="FGT_FW" displayName="Profile Reference" displayOrder="19" editable="false" maxLength="100" name="params.conf_profile_reference" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
       <sections>
         <section>Attach Configuration</section>
       </sections>

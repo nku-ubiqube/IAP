@@ -13,7 +13,7 @@ function list_args()
 } 
 
 $instance_id = $context["InstanceId"];
-$elastic_ip = $context["elastic_ip"];
+$elastic_ip = $context["device_ip_address"];
 logToFile("instance ID: ".$instance_id);
 logToFile("elastic IP: ".$elastic_ip);
 
@@ -42,7 +42,6 @@ try {
 catch (Exception $e) {
     task_exit(FAILED, "Error : $e");
 }
-$context["device_ip_address"] = $elastic_ip;
 
 task_success('Task OK: Elastic IP '.$elastic_ip.' associated to instance '.$instance_id);
 

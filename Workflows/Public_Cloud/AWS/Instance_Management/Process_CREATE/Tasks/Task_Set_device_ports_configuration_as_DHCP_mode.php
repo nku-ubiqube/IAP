@@ -12,12 +12,13 @@ $TASKID = $context['TASKID'];
 $process_params = array('PROCESSINSTANCEID' => $PROCESSINSTANCEID,
 						'EXECNUMBER' => $EXECNUMBER,
 						'TASKID' => $TASKID);
-	
-if (isset($context['NetworkInterfaces'])) {
+/*
+if (isset($context['interface_id'])) {
 $device_id = substr($context['device_id'], 3);
-$netInterfaceCount =  count($context['NetworkInterfaces']);
+$netInterfaceCount =  1;
 
 // Generate configuration depending the count of interfaces
+
 for ($i = 0; $i < $netInterfaceCount; $i++) 
 {
 	// TODO - set this variable as the workflow variable to get flexibility.
@@ -59,11 +60,15 @@ if ($response['wo_status'] !== ENDED) {
 }
 $pushconfig_status_message = $response['wo_comment'];
 
-$response = prepare_json_response(ENDED, "DHCP config is updated successfully on Interface $interface on the Fortigate Device $device_id.\n$pushconfig_status_message", $context, true);
+$response = prepare_json_response(ENDED, "port2 config is updated successfully on Interface $interface on the Fortigate Device $device_id.\n$pushconfig_status_message", $context, true);
 echo $response;
 } else {
 $response = prepare_json_response(ENDED, "No interface found for this VNF", $context, true);
 echo $response;
 }
+*/
+
+$response = prepare_json_response(ENDED, "TODO: configure port2", $context, true);
+echo $response;
 
 ?>
