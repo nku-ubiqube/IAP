@@ -9,9 +9,13 @@ function list_args()
 {
 }
 
-/**
- * End of the task (choose one)
- */
-task_success('Task OK: Elastic IP associated');
+$instance_id = $context["InstanceId"];
+$elastic_ip_id = $context["elastic_ip_id"];
+logToFile("instance ID: ".$instance_id);
+logToFile("elastic IP ID: ".$elastic_ip_id);
+
+#$context["device_ip_address"] = $elastic_ip;
+
+task_success('Task OK: Elastic IP".$elastic_ip_id." associated');
 
 ?>
