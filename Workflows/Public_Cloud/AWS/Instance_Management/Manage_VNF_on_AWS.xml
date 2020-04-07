@@ -12,13 +12,14 @@
     <order>10000</order>
     <poolId>0</poolId>
     <readVariableVisibility>5</readVariableVisibility>
+    <serviceTaskType>php</serviceTaskType>
     <showDetailedServiceInstances>true</showDetailedServiceInstances>
     <showProcessExecConsole>true</showProcessExecConsole>
     <showVariables>false</showVariables>
     <visibility>5</visibility>
   </information>
 	<variables frozen="0">
-    <variable displayName=" AWS Region" displayOrder="0" editable="false" isMandatory="true" keepOnImport="true" maxLength="165" name="params.AwsDeviceId" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Device">
+    <variable default="UBI486" displayName=" AWS Region" displayOrder="0" editable="false" isMandatory="true" keepOnImport="true" maxLength="165" name="params.AwsDeviceId" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Device">
       <sections>
         <section>Sync AWS cloud</section>
       </sections>
@@ -31,12 +32,13 @@
         <section>Instantiate VNFC</section>
       </sections>
     </variable>
-    <variable cols="150" default="ami-0a796272ef341a29d" displayName="Image ID" displayOrder="2" isMandatory="true" maxLength="150" name="params.ImageId" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable cols="150" default="ami-094e94d549d64a3ce" displayName="Image ID" displayOrder="2" isMandatory="true" maxLength="150" name="params.ImageId" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
       <values>
         <value displayValue="FortiGate-VM64 6.0.6 [London] ">ami-0b1bed84cc40437e7</value>
         <value displayValue="FortiGate-VM64 6.2.1 [London] ">ami-08cce3d57081f5137</value>
         <value displayValue="FortiGate-VM64 6.2.1 [Seoul] ">ami-0a796272ef341a29d</value>
         <value displayValue="FortiGate-VM64 6.2.2 [Oregon] ">ami-038bd389458ba36d8</value>
+        <value displayValue="FortiGate-VM64 6.2.3 [Tokyo] ">ami-094e94d549d64a3ce</value>
       </values>
       <sections>
         <section>Instantiate VNFC</section>
@@ -58,7 +60,7 @@
         <section>Instantiate VNFC</section>
       </sections>
     </variable>
-    <variable displayName="Security Group" displayOrder="7" editable="false" isMandatory="true" maxLength="100" name="params.security_group" numberOfRowMax="0" refDeviceIdVar="params.AwsDeviceId" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+    <variable default="sg-0eff2276" displayName="Security Group" displayOrder="7" editable="false" isMandatory="true" maxLength="100" name="params.security_group" numberOfRowMax="0" refDeviceIdVar="params.AwsDeviceId" startIncrement="0" tableSizeFix="false" type="OBMFRef">
       <sections>
         <section>Instantiate VNFC</section>
       </sections>
@@ -71,7 +73,7 @@
         <section>Instantiate VNFC</section>
       </sections>
     </variable>
-    <variable displayName="Subnet ID" displayOrder="9" isMandatory="true" maxLength="100" name="params.SubnetId" numberOfRowMax="0" refDeviceIdVar="params.AwsDeviceId" startIncrement="0" type="OBMFRef">
+    <variable default="subnet-abffcfe2" displayName="Subnet ID" displayOrder="9" isMandatory="true" maxLength="100" name="params.SubnetId" numberOfRowMax="0" refDeviceIdVar="params.AwsDeviceId" startIncrement="0" type="OBMFRef">
       <sections>
         <section>Instantiate VNFC</section>
       </sections>
@@ -145,6 +147,11 @@
     <variable default="FGT_FW" displayName="Profile Reference" displayOrder="22" maxLength="100" name="params.conf_profile_reference" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
       <sections>
         <section>Attach Configuration</section>
+      </sections>
+    </variable>
+    <variable displayName="Mon Profile Reference" displayOrder="25" maxLength="100" name="params.mon_profile_reference" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Attach Configuration Settings</section>
       </sections>
     </variable>
   </variables>

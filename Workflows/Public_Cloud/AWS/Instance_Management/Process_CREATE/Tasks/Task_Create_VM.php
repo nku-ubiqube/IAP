@@ -16,17 +16,14 @@ function list_args()
   create_var_def('AwsDeviceId', 'Device');
   create_var_def('deviceId', 'Device');
   create_var_def('ImageId', 'String');
-  create_var_def('MaxCount', 'Integer');
-  create_var_def('MinCount', 'Integer');
   create_var_def('InstanceType', 'String');
   create_var_def('security_group', 'String');
   create_var_def('SubnetId', 'OBMFref');
+  create_var_def('elastic_ip_id', 'String');
 }
 
 check_mandatory_param('ImageId');
 check_mandatory_param('InstanceType');
-check_mandatory_param('MaxCount');
-check_mandatory_param('MinCount');
 check_mandatory_param('SubnetId');
 
 
@@ -63,8 +60,8 @@ $ec2Client = Ec2Client::factory(array(
 logToFile("ec2 client successful");
 
 $array = array("ImageId" => $context["ImageId"], 
-               "MinCount" => $context["MinCount"], 
-               "MaxCount" => $context["MaxCount"],
+               "MinCount" => 1, 
+               "MaxCount" => 1,
                "InstanceType" => $context['InstanceType'], 
                "Placement.AvailabilityZone" => $context["region"], 
                "SubnetId" => $context["SubnetId"], 
