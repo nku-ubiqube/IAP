@@ -151,14 +151,14 @@
 	<example>
 		<content/>
 	</example>
-	<process name="Process/IAP/Public_Cloud/AWS/Process_New_service">
+	<process name="Process/IAP_Public_Cloud/AWS/Process_New_service">
 		<visibility>5</visibility>
 		<displayName>New Service</displayName>
 		<icon/>
 		<allowSchedule>false</allowSchedule>
 		<type>CREATE</type>
 		<task name="Task_Synchronization_to_AWS_cloud.php">
-			<processPath>/opt/fmc_repository/Process/IAP/Public_Cloud/AWS/Instance_Management/Process_New_service/Tasks/
+			<processPath>/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_New_service/Tasks/
 			</processPath>
 			<displayName>Synchronization with AWS</displayName>
 		</task>
@@ -171,35 +171,35 @@
 		<icon/>
 		<allowSchedule>false</allowSchedule>
 		<type>UPDATE</type>		
-  <task name="/opt/fmc_repository/Process/IAP/Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_Create_VM.php">
+  <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_Create_VM.php">
       <processPath/>
       <displayName>Launch Instance</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/IAP/Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_Associate_Elastic_IP.php">
+    <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_Associate_Elastic_IP.php">
       <processPath/>
       <displayName>Associate Elastic IP</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/IAP/Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_wait_for_instance.php">
+    <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_wait_for_instance.php">
       <processPath/>
       <displayName>Wait for Instance</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/IAP/Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_msa_device_create.php">
+    <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_msa_device_create.php">
       <processPath/>
       <displayName>Create Device</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/IAP/Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_Update_VNFCi_user_password.php">
+    <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_Update_VNFCi_user_password.php">
       <processPath>/opt/fmc_repository/Process/Public_Cloud/AWS_WF/Instance_Management/Process_CREATE/Tasks/</processPath>
       <displayName>Update Instance Credentials</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/IAP/Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_attach_network_interfaces_to_VNFC_instance.php">
+    <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_attach_network_interfaces_to_VNFC_instance.php">
       <processPath/>
       <displayName>Update Instance Interfaces</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/IAP/Public_Cloud/AWS/Instance_Management/Process_Reboot_VNFC/Tasks/Task_Reboot_VNFC.php">
+    <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_Reboot_VNFC/Tasks/Task_Reboot_VNFC.php">
       <processPath/>
       <displayName>Restart Instance</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/IAP/Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_Wait_for_device_Ping.php">
+    <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_Wait_for_device_Ping.php">
       <processPath/>
       <displayName>Wait for Connectivity</displayName>
     </task>
@@ -207,11 +207,11 @@
       <processPath/>
       <displayName>Initial Provisioning</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/IAP/Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_Set_device_ports_configuration_as_DHCP_mode.php">
+    <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_Set_device_ports_configuration_as_DHCP_mode.php">
       <processPath>/opt/fmc_repository/Process/Public_Cloud/AWS_WF/Process_CREATE/Tasks/</processPath>
       <displayName>Set Ports Configuration to DHCP mode</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/IAP/Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_msa_attach_config_profil.php">
+    <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_msa_attach_config_profil.php">
       <processPath/>
       <displayName>Attach Configuration Settings</displayName>
     </task>
@@ -223,11 +223,11 @@
 		<icon/>
 		<allowSchedule>false</allowSchedule>
 		<type>UPDATE</type>
-	<task name="/opt/fmc_repository/Process/IAP/Public_Cloud/AWS/Instance_Management/Process_Terminate_VNFC/Tasks/Task_Delete_VM_on_AWS.php">
+	<task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_Terminate_VNFC/Tasks/Task_Delete_VM_on_AWS.php">
       <processPath/>
       <displayName>Terminate Instance</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/IAP/Public_Cloud/AWS/Instance_Management/Process_Terminate_VNFC/Tasks/Task_Wait.php">
+    <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_Terminate_VNFC/Tasks/Task_Wait.php">
       <processPath/>
       <displayName>Wait</displayName>
     </task>
@@ -239,7 +239,7 @@
   </process>
 
 
-	<process name="Process/IAP/Public_Cloud/AWS/Instance_Management/Process_Move_To_Trash">
+	<process name="Process/IAP_Public_Cloud/AWS/Instance_Management/Process_Move_To_Trash">
 		<visibility>5</visibility>
 		<displayName>Move To Trash</displayName>
 		<icon/>
@@ -247,7 +247,7 @@
 		<type>DELETE</type>
 		<compensation/>
 	</process>
-	<process name="Process/IAP/Public_Cloud/AWS/Instance_Management/Process_Sync_with_AWS">
+	<process name="Process/IAP_Public_Cloud/AWS/Instance_Management/Process_Sync_with_AWS">
 		<visibility>5</visibility>
 		<displayName>Synchronize with AWS</displayName>
 		<icon/>
@@ -255,7 +255,7 @@
 		<compensation/>
 		<allowSchedule>false</allowSchedule>
 		<type>UPDATE</type>
-		<task name="/opt/fmc_repository/Process/IAP/Public_Cloud/AWS/Instance_Management/Process_New_service/Tasks/Task_Synchronization_to_AWS_cloud.php">
+		<task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_New_service/Tasks/Task_Synchronization_to_AWS_cloud.php">
 			<processPath/>
 			<displayName>Synchronization with AWS</displayName>
 		</task>
