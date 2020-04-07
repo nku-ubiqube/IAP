@@ -2,6 +2,22 @@
 <metadata>
     <map>
         <entry>
+            <key>CONFIGURATION_FILTER</key>
+            <value></value>
+        </entry>
+        <entry>
+            <key>DATE_MODIFICATION</key>
+            <value>1586290429044</value>
+        </entry>
+        <entry>
+            <key>REPOSITORY</key>
+            <value>Process</value>
+        </entry>
+        <entry>
+            <key>DATE_CREATION</key>
+            <value>1524580518116</value>
+        </entry>
+        <entry>
             <key>MODEL</key>
         </entry>
         <entry>
@@ -9,34 +25,17 @@
             <value>text</value>
         </entry>
         <entry>
-            <key>DATE_MODIFICATION</key>
-            <value>1559815134798</value>
-        </entry>
-        <entry>
-            <key>COMMENT</key>
-            <value></value>
-        </entry>
-        <entry>
-            <key>REPOSITORY</key>
-        </entry>
-        <entry>
-            <key>DATE_CREATION</key>
-            <value>1524580518116</value>
+            <key>TAG</key>
         </entry>
         <entry>
             <key>MANUFACTURER</key>
         </entry>
         <entry>
-            <key>CONFIGURATION_FILTER</key>
-            <value></value>
-        </entry>
-        <entry>
-            <key>TAG</key>
-            <value></value>
-        </entry>
-        <entry>
             <key>TYPE</key>
             <value>UPLOAD</value>
+        </entry>
+        <entry>
+            <key>COMMENT</key>
         </entry>
     </map>
 </metadata>

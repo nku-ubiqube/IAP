@@ -19,14 +19,15 @@ function list_args()
   create_var_def('InstanceType', 'String');
   create_var_def('security_group', 'String');
   create_var_def('SubnetId', 'OBMFref');
-  create_var_def('elastic_ip_id', 'String');
+  create_var_def('elastic_ip', 'String');
+  create_var_def('interface_id', 'String');
 }
 
 check_mandatory_param('ImageId');
 check_mandatory_param('InstanceType');
 check_mandatory_param('SubnetId');
-
-
+check_mandatory_param('elastic_ip');
+check_mandatory_param('interface_id');
 
 $PROCESSINSTANCEID = $context['PROCESSINSTANCEID'];
 $EXECNUMBER = $context['EXECNUMBER'];
@@ -36,9 +37,9 @@ $process_params = array('PROCESSINSTANCEID' => $PROCESSINSTANCEID,
 						'TASKID' => $TASKID);
 	
 $AwsDeviceId = $context["AwsDeviceId"];
-$dev_seq_num = substr($AwsDeviceId,3);
+$device_id = substr($AwsDeviceId,3);
 
-$response = _device_read_by_id($dev_seq_num);
+$response = _device_read_by_id($device_id);
 $response = json_decode($response, true);
 if ($response['wo_status'] !== ENDED) {
 	$response = json_encode($response);
@@ -46,10 +47,21 @@ if ($response['wo_status'] !== ENDED) {
 	exit;
 }
 
+$key = $response['wo_newparams']['login'];
+$context["key"] = $key;
+$secret = $response['wo_newparams']['password'];
+$context["secret"] = $secret;
 
+$response = _device_get_hostname_by_id($device_id);
+$response = json_decode($response, true);
+if ($response['wo_status'] !== ENDED) {
+	$response = json_encode($response);
+	echo $response;
+	exit;
+}
+$region = $response['wo_newparams']['hostname'];
+$context["region"] = $region;
 $region = $context["region"];
-$key=$context["key"];
-$secret = $context["secret"];
 
 $ec2Client = Ec2Client::factory(array(
     'key'    => $key,

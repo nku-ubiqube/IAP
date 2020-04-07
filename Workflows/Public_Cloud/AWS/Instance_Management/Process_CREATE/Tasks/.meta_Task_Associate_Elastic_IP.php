@@ -2,20 +2,30 @@
 <metadata>
     <map>
         <entry>
-            <key>FILE_TYPE</key>
-            <value>text</value>
+            <key>DATE_MODIFICATION</key>
+            <value>1586289758878</value>
         </entry>
         <entry>
-            <key>DATE_MODIFICATION</key>
-            <value>1586187113500</value>
+            <key>REPOSITORY</key>
+            <value>Process</value>
         </entry>
         <entry>
             <key>DATE_CREATION</key>
             <value>1586186686302</value>
         </entry>
         <entry>
+            <key>FILE_TYPE</key>
+            <value>text</value>
+        </entry>
+        <entry>
+            <key>TAG</key>
+        </entry>
+        <entry>
             <key>TYPE</key>
             <value>FILE</value>
+        </entry>
+        <entry>
+            <key>COMMENT</key>
         </entry>
     </map>
 </metadata>

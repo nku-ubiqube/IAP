@@ -13,7 +13,7 @@ use Aws\Ec2\Ec2Client;
  */
 function list_args()
 {
-	create_var_def('NetworkInterfaces.0.Id', 'OBMFref');
+	create_var_def('interface_id', 'String');
 }
 
 $ec2Client = Ec2Client::factory(array(
@@ -27,37 +27,29 @@ logToFile("ec2 client successful");
 logToFile(debug_dump($context, "DEBUG CONTEXT:\n"));
 
 
-if (isset($context["NetworkInterfaces"])) {
-$networkInterfaces = $context["NetworkInterfaces"];
-$netInterfaceCount = count($networkInterfaces);
+if (isset($context["interface_id"])) {
+$interface_id = $context["interface_id"];
 
-logToFile("DEBUG: Network Interfaces count ==> " . $netInterfaceCount . "\n");
+logToFile("Network Interfaces  ==> " . $interface_id . "\n");
 
-for ($i = 0; $i < $netInterfaceCount; $i++) {
+$instanceId = $context["InstanceId"];
 
-	$networkInterfaceId = $context["NetworkInterfaces"][$i]["Id"];
-	logToFile("DEBUG: networkInterfaceId --> " . $networkInterfaceId . "\n");
-
-	$instanceId = $context["InstanceId"];
-	$deviceIndex = $i + 1;
-
-	$array = array("DeviceIndex" => $deviceIndex,
-					"InstanceId" => $instanceId,
-					"NetworkInterfaceId" => $networkInterfaceId);
+$array = array("DeviceIndex" => 1,
+		"InstanceId" => $instanceId,
+		"NetworkInterfaceId" => $interface_id);
 					
-	$result = $ec2Client->attachNetworkInterface($array);
+$result = $ec2Client->attachNetworkInterface($array);
 
-	try {
-		$res = $result->toArray();
-		logToFile(debug_dump($res, "AWS response\n"));
-	}
-	catch (Exception $e) {
-		task_exit(FAILED, "Error : $e");
-	}
+try {
+	$res = $result->toArray();
+	logToFile(debug_dump($res, "AWS response\n"));
+}
+catch (Exception $e) {
+	task_exit(FAILED, "Error : $e");
 }
 
 
-task_exit(ENDED, " Network interfaces are successfully attached to corresponding instance. \n");
+task_exit(ENDED, 'Network interfaces '.$interface_id.' attached to instance'.$instanceId);
 } else {
 task_exit(ENDED, "No network interface where defined and attached to this instance. \n");
 }

@@ -15,7 +15,7 @@ function list_args()
 {
 }
 
-if (isset($context["NetworkInterfaces"])) {
+if (isset($context["interface_id"])) {
 
 $ec2Client = Ec2Client::factory(array(
     'key'    => $context["key"],

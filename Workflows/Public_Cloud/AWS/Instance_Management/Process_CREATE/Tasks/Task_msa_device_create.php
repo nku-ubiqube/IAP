@@ -4,8 +4,6 @@ require_once '/opt/fmc_repository/Process/Reference/Common/common.php';
 
 function list_args() {
 	create_var_def('customer_id', 'Integer');
-	//create_var_def('managed_device_name', 'String');
-	//create_var_def('device_external_reference', 'String');
 	create_var_def('manufacturer_id', 'Integer');
 	create_var_def('model_id', 'Integer');
 	create_var_def('device_ip_address', 'IP Address');
@@ -16,7 +14,7 @@ function list_args() {
 }
 
 check_mandatory_param('customer_id');
-//check_mandatory_param('managed_device_name');
+
 check_mandatory_param('manufacturer_id');
 check_mandatory_param('model_id');
 check_mandatory_param('login');
