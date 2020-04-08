@@ -5,10 +5,6 @@
       <bpmn:outgoing>SequenceFlow_0fqonbl</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_0fqonbl" sourceRef="StartEvent_1" targetRef="Task_1dsx6b0" />
-    <bpmn:task id="Task_0dc5jnm" name="Configure access policy on VNF">
-      <bpmn:incoming>SequenceFlow_1ye3sab</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_10csk1l</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:sequenceFlow id="SequenceFlow_1ye3sab" sourceRef="Task_1dsx6b0" targetRef="Task_0dc5jnm" />
     <bpmn:sequenceFlow id="SequenceFlow_10csk1l" sourceRef="Task_0dc5jnm" targetRef="Task_1rybvxe" />
     <bpmn:sequenceFlow id="SequenceFlow_148j2iy" sourceRef="Task_1rybvxe" targetRef="Task_1lq1cwb" />
@@ -76,6 +72,26 @@
       <bpmn:incoming>SequenceFlow_148j2iy</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_089pdfj</bpmn:outgoing>
     </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_0dc5jnm" name="Public Cloud VNF Management">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/UBIA138?serviceName=Process%2FIAP_Public_Cloud%2FAWS%2FInstance_Management%2FManage_VNF_on_AWS&amp;processName=Process%2FIAP_Public_Cloud%2FAWS%2FInstance_Management%2FProcess_Update_Firewall_Policy</camunda:inputParameter>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODYyODYxNjIsImx2bCI6IjEiLCJleHAiOjE1ODYzNzI1NjJ9.Rnrc2qre1xywTbUAg8KP0khYy3O-jxt32AgZ3ux4Ausq-Kd5-YzZzP4vS_bAZqWufMy9FmiWvbYy2UHAJikRpA</camunda:entry>
+                <camunda:entry key="Accept">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="payload">{}</camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1ye3sab</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_10csk1l</bpmn:outgoing>
+    </bpmn:serviceTask>
     <bpmn:textAnnotation id="TextAnnotation_1thxyor">
       <bpmn:text>update the Flexiwan router to route traffic to internet</bpmn:text>
     </bpmn:textAnnotation>
@@ -102,9 +118,6 @@
         <di:waypoint x="209" y="120" />
         <di:waypoint x="310" y="120" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Task_0dc5jnm_di" bpmnElement="Task_0dc5jnm">
-        <dc:Bounds x="490" y="80" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1ye3sab_di" bpmnElement="SequenceFlow_1ye3sab">
         <di:waypoint x="410" y="120" />
         <di:waypoint x="490" y="120" />
@@ -160,6 +173,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="ServiceTask_1586337889887_di" bpmnElement="Task_1lq1cwb">
         <dc:Bounds x="810" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1586338250544_di" bpmnElement="Task_0dc5jnm">
+        <dc:Bounds x="490" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
