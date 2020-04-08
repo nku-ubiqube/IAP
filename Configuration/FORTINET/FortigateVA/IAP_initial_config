@@ -1,0 +1,60 @@
+{*
+<variables>
+  <variable name="mgmt_ip" type="String" displayOrder="0" tableSizeFix="false" numberOfRowMax="0" maxLength="100">  </variable>
+  <variable name="lan_ip" type="String" displayOrder="0" tableSizeFix="false" numberOfRowMax="0" maxLength="100">  </variable>
+  <variable name="webserver_ip" type="String" displayOrder="0" tableSizeFix="false" numberOfRowMax="0" maxLength="100">  </variable>
+  <variable name="admin_password" type="String" displayOrder="0" tableSizeFix="false" numberOfRowMax="0" maxLength="100">  </variable>
+</variables>
+*}
+exec batch start
+config system admin
+edit admin
+set password {$admin_password}
+end
+
+config system interface
+edit "port1"
+set mode static
+set ip {$mgmt_ip} 255.255.255.0
+set allowaccess ping https ssh http fgfm
+next
+edit "port2"
+set mode static
+set ip {$lan_ip} 255.255.255.0
+set allowaccess ping http
+next
+end
+
+config router static
+edit 1
+set gateway 192.168.2.1
+set device "port1"
+next
+end
+
+config firewall vip
+edit "VIP-WEB"
+set extip {$mgmt_ip}
+set extintf "port1"
+set portforward enable
+set mappedip "{$webserver_ip}"
+set extport 80
+set mappedport 80
+next
+end
+
+config firewall policy
+edit 100
+set name "NAT_WEB"
+set srcintf "port1"
+set dstintf "port2"
+set srcaddr "all"
+set dstaddr "VIP-WEB"
+set action accept
+set schedule "always"
+set service "HTTP"
+set logtraffic enable
+set nat enable
+next
+end
+exec batch end

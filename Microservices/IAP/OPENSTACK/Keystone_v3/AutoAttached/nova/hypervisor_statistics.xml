@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description>Shows summary statistics for all enabled hypervisors over all compute nodes.</description>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Nova</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>hypervisor statistics</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="count" displayOrder="0" maxLength="100" name="params.count" startIncrement="0" type="String"/>
+    <variable displayName="local_gb_used" displayOrder="1" maxLength="100" name="params.local_gb_used" startIncrement="0" type="String"/>
+    <variable displayName="vcpus" displayOrder="2" maxLength="100" name="params.vcpus" startIncrement="0" type="String"/>
+    <variable displayName="disk_available_least" displayOrder="3" maxLength="100" name="params.disk_available_least" startIncrement="0" type="String"/>
+    <variable displayName="free_disk_gb" displayOrder="4" maxLength="100" name="params.free_disk_gb" startIncrement="0" type="String"/>
+    <variable displayName="memory_mb" displayOrder="5" maxLength="100" name="params.memory_mb" startIncrement="0" type="String"/>
+    <variable displayName="memory_mb_used" displayOrder="6" maxLength="100" name="params.memory_mb_used" startIncrement="0" type="String"/>
+    <variable displayName="free_ram_mb" displayOrder="7" maxLength="100" name="params.free_ram_mb" startIncrement="0" type="String"/>
+    <variable displayName="local_gb" displayOrder="8" maxLength="100" name="params.local_gb" startIncrement="0" type="String"/>
+    <variable displayName="vcpus_used" displayOrder="9" maxLength="100" name="params.vcpus_used" startIncrement="0" type="String"/>
+    <variable displayName="running_vms" displayOrder="10" maxLength="100" name="params.running_vms" startIncrement="0" type="String"/>
+  </variables>  <example>
+    <content>&lt;?xml version="1.0"?&gt;
+&lt;root&gt;
+	&lt;hypervisor_statistics&gt;
+		&lt;count&gt;4&lt;/count&gt;
+		&lt;vcpus_used&gt;61&lt;/vcpus_used&gt;
+		&lt;local_gb_used&gt;832&lt;/local_gb_used&gt;
+		&lt;memory_mb&gt;2095824&lt;/memory_mb&gt;
+		&lt;current_workload&gt;0&lt;/current_workload&gt;
+		&lt;vcpus&gt;160&lt;/vcpus&gt;
+		&lt;running_vms&gt;23&lt;/running_vms&gt;
+		&lt;free_disk_gb&gt;106472&lt;/free_disk_gb&gt;
+		&lt;disk_available_least&gt;103637&lt;/disk_available_least&gt;
+		&lt;local_gb&gt;107304&lt;/local_gb&gt;
+		&lt;free_ram_mb&gt;1877712&lt;/free_ram_mb&gt;
+		&lt;memory_mb_used&gt;218112&lt;/memory_mb_used&gt;
+	&lt;/hypervisor_statistics&gt;
+&lt;/root&gt;
+</content>
+  </example>
+<command name="IMPORT">
+    <operation>nova</operation>
+    <xpath>/os-hypervisors/statistics</xpath>
+    <parser>
+      <section>
+        <xpath>//root/hypervisor_statistics</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>count</xpath>
+          <regexp>@&lt;count&gt;(?&lt;count&gt;.*)&lt;/count&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>vcpus</xpath>
+          <regexp>@&lt;vcpus&gt;(?&lt;vcpus&gt;.*)&lt;/vcpus&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>vcpus_used</xpath>
+          <regexp>@&lt;vcpus_used&gt;(?&lt;vcpus_used&gt;.*)&lt;/vcpus_used&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>local_gb</xpath>
+          <regexp>@&lt;local_gb&gt;(?&lt;local_gb&gt;.*)&lt;/local_gb&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>local_gb_used</xpath>
+          <regexp>@&lt;local_gb_used&gt;(?&lt;local_gb_used&gt;.*)&lt;/local_gb_used&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>memory_mb</xpath>
+          <regexp>@&lt;memory_mb&gt;(?&lt;memory_mb&gt;.*)&lt;/memory_mb&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>memory_mb_used</xpath>
+          <regexp>@&lt;memory_mb_used&gt;(?&lt;memory_mb_used&gt;.*)&lt;/memory_mb_used&gt;@</regexp>
+        </line>
+        
+        <line>
+          <xpath>running_vms</xpath>
+          <regexp>@&lt;running_vms&gt;(?&lt;running_vms&gt;.*)&lt;/running_vms&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>free_ram_mb</xpath>
+          <regexp>@&lt;free_ram_mb&gt;(?&lt;free_ram_mb&gt;.*)&lt;/free_ram_mb&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>free_disk_gb</xpath>
+          <regexp>@&lt;free_disk_gb&gt;(?&lt;free_disk_gb&gt;.*)&lt;/free_disk_gb&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>disk_available_least</xpath>
+          <regexp>@&lt;disk_available_least&gt;(?&lt;disk_available_least&gt;.*)&lt;/disk_available_least&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+</ObjectDefinition>
