@@ -11,7 +11,7 @@ require_once '/opt/fmc_repository/Process/Reference/Common/common.php';
 function list_args()
 {
 }
-
-task_success('Task OK');
+logToFile("update route on PNF");
+task_success('PNF route updated');
 
 ?>

@@ -12,6 +12,15 @@ function list_args()
 {
 }
 
-task_success('Task OK');
+/**
+* NOTE
+* This task doesn't do anything, the FW policy is updated by the process Launch Instance for the moment
+* This can be changed once BPM is aware of WF instances and context can be passed from one BPM task to another
+*/
+
+sleep(5);
+
+
+task_success('Firewall policy updated');
 
 ?>

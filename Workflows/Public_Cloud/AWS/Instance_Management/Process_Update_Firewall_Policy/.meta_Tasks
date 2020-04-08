@@ -3,7 +3,7 @@
     <map>
         <entry>
             <key>DATE_MODIFICATION</key>
-            <value>1586335450286</value>
+            <value>1586338232492</value>
         </entry>
         <entry>
             <key>REPOSITORY</key>
@@ -11,18 +11,14 @@
         </entry>
         <entry>
             <key>DATE_CREATION</key>
-            <value>1586335450282</value>
+            <value>1586338232488</value>
         </entry>
         <entry>
             <key>TAG</key>
         </entry>
         <entry>
-            <key>FILE_TYPE</key>
-            <value>text</value>
-        </entry>
-        <entry>
             <key>TYPE</key>
-            <value>UPLOAD</value>
+            <value>DIRECTORY</value>
         </entry>
         <entry>
             <key>COMMENT</key>

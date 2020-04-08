@@ -254,4 +254,16 @@
 			<displayName>Synchronization with AWS</displayName>
 		</task>
 	</process>
+<process name="Process/IAP_Public_Cloud/AWS/Instance_Management/Process_Update_Firewall_Policy">
+    <visibility>5</visibility>
+    <displayName>Update Firewall Policy</displayName>
+    <icon/>
+    <poolId>0</poolId>
+    <allowSchedule>false</allowSchedule>
+    <type>CREATE</type>
+    <task name="Task_update_policy.php">
+      <processPath>/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_Update_Firewall_Policy/Tasks/</processPath>
+      <displayName>update policy</displayName>
+    </task>
+  </process>
 </ObjectDefinition>

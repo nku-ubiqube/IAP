@@ -2,12 +2,8 @@
 <metadata>
     <map>
         <entry>
-            <key>CONFIGURATION_FILTER</key>
-            <value></value>
-        </entry>
-        <entry>
             <key>DATE_MODIFICATION</key>
-            <value>1586337603721</value>
+            <value>1586337601665</value>
         </entry>
         <entry>
             <key>REPOSITORY</key>
@@ -15,7 +11,7 @@
         </entry>
         <entry>
             <key>DATE_CREATION</key>
-            <value>1586335253105</value>
+            <value>1586337296202</value>
         </entry>
         <entry>
             <key>TAG</key>
