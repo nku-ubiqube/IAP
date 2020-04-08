@@ -16,18 +16,26 @@ main() {
 	cd /opt/fmc_repository/Process/
 	ln -fs ../github_ubiqube_iap_public_cloud/Workflows/Public_Cloud IAP_Public_Cloud
 	ln -fs ../github_ubiqube_iap_public_cloud/Workflows/.meta_Public_Cloud .meta_IAP_Public_Cloud
-	chown -R ncuser.ncuser /opt/fmc_repository/* /opt/fmc_repository/.* 
+
     ### MS
 	cd /opt/fmc_repository/CommandDefinition/	
 	ln -fs ../github_ubiqube_iap_public_cloud/Microservices/IAP IAP
 	ln -fs ../github_ubiqube_iap_public_cloud/Microservices/.meta_IAP .meta_IAP
-	chown -R ncuser.ncuser /opt/fmc_repository/* /opt/fmc_repository/.* 
 
     #install private cloud WF and MS
 	cd /opt/fmc_repository/Process/
 	git clone https://github.com/ubiqube/IAP.git github_ubiqube_aip_private_cloud
 	ln -fs ../github_ubiqube_aip_private_cloud/Workflows/Private_Cloud IAP_Private_Cloud
 	ln -fs ../github_ubiqube_aip_private_cloud/Workflows/.meta_Private_Cloud .meta_IAP_Private_Cloud
+
+	# install connectivity mngt
+	cd /opt/fmc_repository
+	git clone https://github.com/ubiqube/IAP.git github_ubiqube_iap_connectivity_mngt
+	cd /opt/fmc_repository/Process/
+	ln -s ../github_ubiqube_iap_connectivity_mngt/Workflows/Router_Management IAP_Router_Management 
+	ln -s ../github_ubiqube_iap_connectivity_mngt/Workflows/.meta_IAP_Router_Management .meta_Router_Management
+
+	chown -R ncuser.ncuser /opt/fmc_repository/* /opt/fmc_repository/.* 
 
 
 	# install DA
