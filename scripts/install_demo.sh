@@ -33,7 +33,7 @@ main() {
 	git clone https://github.com/ubiqube/IAP.git github_ubiqube_iap_connectivity_mngt
 	cd /opt/fmc_repository/Process/
 	ln -s ../github_ubiqube_iap_connectivity_mngt/Workflows/Router_Management IAP_Router_Management 
-	ln -s ../github_ubiqube_iap_connectivity_mngt/Workflows/.meta_IAP_Router_Management .meta_Router_Management
+	ln -s ../github_ubiqube_iap_connectivity_mngt/Workflows/.meta_Router_Management .meta_Router_Management
 
 	chown -R ncuser.ncuser /opt/fmc_repository/* /opt/fmc_repository/.* 
 
