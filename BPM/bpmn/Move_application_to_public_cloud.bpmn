@@ -36,7 +36,7 @@
                 <camunda:entry key="Accept">application/json</camunda:entry>
               </camunda:map>
             </camunda:inputParameter>
-            <camunda:inputParameter name="payload">{"conf_profile_reference":"FGT_FW","interface_id":"eni-0969d4b89e64ee004","customer_id":"UBIA138","AwsDeviceId":"UBI486","ImageId":"ami-094e94d549d64a3ce","InstanceType":"c5.large","security_group":"sg-0eff2276","SubnetId":"subnet-abffcfe2","device_ip_address":"3.115.192.248","model_id":"15102617","manufacturer_id":"17","login":"admin","new_password":"AZERTY123456789","snmp_community":"myCommunity"}</camunda:inputParameter>
+            <camunda:inputParameter name="payload">{"conf_profile_reference":"FGT_FW","interface_id":"eni-004b52afd89440c7d","customer_id":"UBIA138","AwsDeviceId":"UBI486","ImageId":"ami-094e94d549d64a3ce","InstanceType":"c5.large","security_group":"sg-e8a77390","SubnetId":"subnet-4eebd807","device_ip_address":"3.115.192.248","model_id":"15102617","manufacturer_id":"17","login":"admin","new_password":"AZERTY123456789","snmp_community":"myCommunity"}</camunda:inputParameter>
           </camunda:inputOutput>
           <camunda:connectorId>http-connector</camunda:connectorId>
         </camunda:connector>
@@ -126,7 +126,7 @@
         <di:waypoint x="372" y="80" />
         <di:waypoint x="390" y="17" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="ServiceTask_1586293880471_di" bpmnElement="Task_1dsx6b0">
+      <bpmndi:BPMNShape id="ServiceTask_1586332869110_di" bpmnElement="Task_1dsx6b0">
         <dc:Bounds x="310" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
