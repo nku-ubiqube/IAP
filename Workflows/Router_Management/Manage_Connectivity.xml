@@ -53,4 +53,12 @@
     <type>CREATE</type>
     
   </process>
+<process name="Process/IAP_Router_Management/Process_move_to_trash">
+    <visibility>5</visibility>
+    <displayName>move to trash</displayName>
+    <icon/>
+    <poolId>0</poolId>
+    <allowSchedule>false</allowSchedule>
+    <type>DELETE</type>
+  </process>
 </ObjectDefinition>
