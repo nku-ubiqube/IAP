@@ -35,7 +35,7 @@ $response = _device_do_update_config ($device_id);
     echo $response;
   }
 
-$response = prepare_json_response(ENDED, "Configuration and Monitoring profile attached.\n", $context, true);
+$response = prepare_json_response(ENDED, "Configuration profile attached.\n", $context, true);
 echo $response;
 
 ?>
