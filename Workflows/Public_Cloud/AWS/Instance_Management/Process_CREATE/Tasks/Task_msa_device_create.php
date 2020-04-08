@@ -80,6 +80,14 @@ if ($response['wo_status'] !== ENDED) {
 	exit;
 }
 
+$device_private_address = $context["device_private_address"];
+$response = _configuration_variable_create ($device_id, "device_private_address", $device_private_address);
+if ($response['wo_status'] !== ENDED) {
+	$response = json_encode($response);
+	echo $response;
+	exit;
+}
+
 $response = prepare_json_response(ENDED, "MSA Device created successfully.\n$wo_comment", $context, true);
 echo $response;
 
