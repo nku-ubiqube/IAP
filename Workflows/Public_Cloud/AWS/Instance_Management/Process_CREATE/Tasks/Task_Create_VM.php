@@ -114,6 +114,6 @@ try {
 }
 
 
-task_exit(ENDED, "instance ". $context["InstanceId"] . " / " .$context["device_private_address"]." / ".$context["temp_device_ip_address"]." created (temporary address)");
+task_exit(ENDED, "instance ". $context["InstanceId"] . " / " .$context["device_private_address"]." / ".$context["temp_device_ip_address"]." created");
 
 ?>
