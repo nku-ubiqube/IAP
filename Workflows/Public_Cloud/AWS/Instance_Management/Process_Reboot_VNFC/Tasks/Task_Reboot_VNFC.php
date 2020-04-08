@@ -15,8 +15,6 @@ function list_args()
 {
 }
 
-/*****
-
 if (isset($context["interface_id"])) {
 
 $ec2Client = Ec2Client::factory(array(
@@ -44,8 +42,6 @@ task_exit(ENDED, "Instance successfully rebooted. Id : " . $context["InstanceId"
 } else {
 task_exit(ENDED, "No interface added, skipping reboot of instance: " . $context["InstanceId"]);
 }
-****/
 
 
-task_exit(ENDED, "skipping task");
 ?>
