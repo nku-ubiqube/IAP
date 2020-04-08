@@ -141,7 +141,7 @@
         <section>Stop VNFCi</section>
       </sections>
     </variable>
-    <variable default="FGT_FW" displayName="Profile Reference" displayOrder="20" editable="false" maxLength="100" name="params.conf_profile_reference" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
+    <variable default="IAP_FGT_AWS" displayName="Profile Reference" displayOrder="20" editable="false" maxLength="100" name="params.conf_profile_reference" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
       <sections>
         <section>Attach Configuration</section>
       </sections>
@@ -182,6 +182,61 @@
     
     
   
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_Create_VM.php">
       <processPath/>
       <displayName>Launch Instance</displayName>
@@ -214,13 +269,13 @@
       <processPath/>
       <displayName>Wait for Connectivity</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/Reference/MSActivator/Device/Task_do_initial_provisioning.php">
-      <processPath/>
-      <displayName>Initial Provisioning</displayName>
-    </task>
     <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_Set_device_ports_configuration_as_DHCP_mode.php">
       <processPath>/opt/fmc_repository/Process/Public_Cloud/AWS_WF/Process_CREATE/Tasks/</processPath>
       <displayName>Update Lan Interface Configuration</displayName>
+    </task>
+    <task name="/opt/fmc_repository/Process/Reference/MSActivator/Device/Task_do_initial_provisioning.php">
+      <processPath/>
+      <displayName>Initial Provisioning</displayName>
     </task>
     <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_msa_attach_config_profil.php">
       <processPath/>
