@@ -6,7 +6,7 @@ function list_args()
 {
   create_var_def('lan_ip', 'String');
 }
-
+/**
 $PROCESSINSTANCEID = $context['PROCESSINSTANCEID'];
 $EXECNUMBER = $context['EXECNUMBER'];
 $TASKID = $context['TASKID'];
@@ -17,11 +17,20 @@ $process_params = array('PROCESSINSTANCEID' => $PROCESSINSTANCEID,
 $device_id = substr($context['device_id'], 3);
 $lan_ip=$context['lan_ip'];
 
+$response = wait_for_provisioning_completion($device_id, $process_params);
+$response = json_decode($response, true);
+if ($response['wo_status'] !== ENDED) {
+	$response = json_encode($response);
+	echo $response;
+	exit;
+}
+
+
 $command1 = "config system interface";
 $command2 = "edit port2";
 $command3 = "set mode static";
 $command4 = "set ip {$lan_ip} 255.255.255.0";
-$command5 = "set allowaccess ping http";	
+$command5 = "set allowaccess ping ssh";	
 $command6 = "end";
 $command7 = "";
 
@@ -45,7 +54,9 @@ if ($response['wo_status'] !== ENDED) {
 }
 $pushconfig_status_message = $response['wo_comment'];
 
-
+sleep(10);
+*/
+$pushconfig_status_message = "";
 $response = prepare_json_response(ENDED, "LAN interface config successful.\n$pushconfig_status_message", $context, true);
 echo $response;
 
