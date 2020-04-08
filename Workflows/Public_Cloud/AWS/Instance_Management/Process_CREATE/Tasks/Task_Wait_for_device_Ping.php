@@ -11,7 +11,7 @@ require_once '/opt/fmc_repository/Process/Reference/Common/common.php';
 function list_args()
 {
 }
-
+/*****
 $a = ".";
 for ($index = 0; $index < 5; $index++) {
     $a .= ".";
@@ -20,5 +20,8 @@ for ($index = 0; $index < 5; $index++) {
 }
 
 task_exit(ENDED, "Task OK");
+****/
+
+task_exit(ENDED, "skipping task");
 
 ?>

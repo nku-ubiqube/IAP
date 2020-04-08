@@ -1,26 +1,53 @@
-<?php
+<?php 
 
-/**
- * This file is necessary to include to use all the in-built libraries of /opt/fmc_repository/Reference/Common
- */
 require_once '/opt/fmc_repository/Process/Reference/Common/common.php';
 
-/**
- * List all the parameters required by the task
- */
 function list_args()
 {
+  create_var_def('lan_ip', 'String');
 }
 
-/**
-* NOTE
-* This task doesn't do anything, the FW policy is updated by the process Launch Instance for the moment
-* This can be changed once BPM is aware of WF instances and context can be passed from one BPM task to another
-*/
+$PROCESSINSTANCEID = $context['PROCESSINSTANCEID'];
+$EXECNUMBER = $context['EXECNUMBER'];
+$TASKID = $context['TASKID'];
+$process_params = array('PROCESSINSTANCEID' => $PROCESSINSTANCEID,
+						'EXECNUMBER' => $EXECNUMBER,
+						'TASKID' => $TASKID);
 
-sleep(5);
+$device_id = substr($context['device_id'], 3);
+$lan_ip=$context['lan_ip'];
+
+$command1 = "config system interface";
+$command2 = "edit port2";
+$command3 = "set mode static";
+$command4 = "set ip {$lan_ip} 255.255.255.0";
+$command5 = "set allowaccess ping http";	
+$command6 = "end";
+$command7 = "";
+
+$commands = "$command1\n$command2\n$command3\n$command4\n$command5\n$command6\n$command7";
+$configuration = "\n$commands";
+
+$response = _device_do_push_configuration_by_id($device_id, $configuration);
+$response = json_decode($response, true);
+if ($response['wo_status'] !== ENDED) {
+	$response = json_encode($response);
+	echo $response;
+	exit;
+}
+	
+$response = wait_for_pushconfig_completion($device_id, $process_params);
+$response = json_decode($response, true);
+if ($response['wo_status'] !== ENDED) {
+	$response = json_encode($response);
+	echo $response;
+	exit;
+}
+$pushconfig_status_message = $response['wo_comment'];
 
 
-task_success('Firewall policy updated');
+$response = prepare_json_response(ENDED, "LAN interface config successful.\n$pushconfig_status_message", $context, true);
+echo $response;
+
 
 ?>

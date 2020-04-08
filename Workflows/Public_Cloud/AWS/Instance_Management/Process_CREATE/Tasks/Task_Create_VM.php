@@ -21,6 +21,7 @@ function list_args()
   create_var_def('SubnetId', 'OBMFref');
   create_var_def('device_ip_address', 'String');
   create_var_def('interface_id', 'String');
+  create_var_def('lan_ip', 'String');
 }
 
 check_mandatory_param('ImageId');
@@ -28,6 +29,7 @@ check_mandatory_param('InstanceType');
 check_mandatory_param('SubnetId');
 check_mandatory_param('device_ip_address');
 check_mandatory_param('interface_id');
+check_mandatory_param('lan_ip');
 
 $PROCESSINSTANCEID = $context['PROCESSINSTANCEID'];
 $EXECNUMBER = $context['EXECNUMBER'];
