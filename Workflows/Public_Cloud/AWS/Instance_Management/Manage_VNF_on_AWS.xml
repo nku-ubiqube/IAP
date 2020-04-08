@@ -55,7 +55,7 @@
         <section>Instantiate VNFC</section>
       </sections>
     </variable>
-    <variable default="sg-0eff2276" displayName="Security Group" displayOrder="4" editable="false" isMandatory="true" maxLength="100" name="params.security_group" numberOfRowMax="0" refDeviceIdVar="params.AwsDeviceId" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+    <variable default="sg-e8a77390" displayName="Security Group" displayOrder="4" editable="false" isMandatory="true" maxLength="100" name="params.security_group" numberOfRowMax="0" refDeviceIdVar="params.AwsDeviceId" startIncrement="0" tableSizeFix="false" type="OBMFRef">
       <sections>
         <section>Instantiate VNFC</section>
       </sections>
@@ -68,7 +68,7 @@
         <section>Instantiate VNFC</section>
       </sections>
     </variable>
-    <variable default="subnet-abffcfe2" displayName="Subnet ID" displayOrder="6" isMandatory="true" maxLength="100" name="params.SubnetId" numberOfRowMax="0" refDeviceIdVar="params.AwsDeviceId" startIncrement="0" type="OBMFRef">
+    <variable default="subnet-4eebd807" displayName="Subnet ID" displayOrder="6" isMandatory="true" maxLength="100" name="params.SubnetId" numberOfRowMax="0" refDeviceIdVar="params.AwsDeviceId" startIncrement="0" type="OBMFRef">
       <sections>
         <section>Instantiate VNFC</section>
       </sections>
@@ -76,7 +76,7 @@
         <class>subnets</class>
       </classes>
     </variable>
-    <variable default="eni-0969d4b89e64ee004" displayName="Lan Interface" displayOrder="7" maxLength="100" name="params.interface_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable default="eni-004b52afd89440c7d" displayName="Lan Interface" displayOrder="7" maxLength="100" name="params.interface_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
       <sections>
         <section>Instantiate VNFC</section>
       </sections>
