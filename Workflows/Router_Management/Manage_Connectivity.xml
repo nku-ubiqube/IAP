@@ -24,10 +24,7 @@
     <poolId>0</poolId>
     <allowSchedule>false</allowSchedule>
     <type>CREATE</type>
-    <task name="Task_update_route.php">
-      <processPath>/opt/fmc_repository/Process/IPA_Router_Management/Process_uCPE_set_route_to_pub_cloud/Tasks/</processPath>
-      <displayName>update route</displayName>
-    </task>
+    
   </process>
   <process name="Process/IPA_Router_Management/Process_PNF_set_route_to_pub_cloud">
     <visibility>5</visibility>
@@ -36,10 +33,7 @@
     <poolId>0</poolId>
     <allowSchedule>false</allowSchedule>
     <type>CREATE</type>
-    <task name="Task_update_route.php">
-      <processPath>/opt/fmc_repository/Process/IPA_Router_Management/Process_PNF_set_route_to_pub_cloud/Tasks/</processPath>
-      <displayName>update route</displayName>
-    </task>
+    
   </process>
   <process name="Process/IPA_Router_Management/Process_uCPE_set_route_to_priv_cloud">
     <visibility>5</visibility>
@@ -48,10 +42,7 @@
     <poolId>0</poolId>
     <allowSchedule>false</allowSchedule>
     <type>CREATE</type>
-    <task name="Task_update_route.php">
-      <processPath>/opt/fmc_repository/Process/IPA_Router_Management/Process_uCPE_set_route_to_priv_cloud/Tasks/</processPath>
-      <displayName>update route</displayName>
-    </task>
+    
   </process>
   <process name="Process/IPA_Router_Management/Process_PNF_set_route_to_priv_cloud">
     <visibility>5</visibility>
@@ -60,9 +51,6 @@
     <poolId>0</poolId>
     <allowSchedule>false</allowSchedule>
     <type>CREATE</type>
-    <task name="Task_update_route.php">
-      <processPath>/opt/fmc_repository/Process/IPA_Router_Management/Process_PNF_set_route_to_priv_cloud/Tasks/</processPath>
-      <displayName>update route</displayName>
-    </task>
+    
   </process>
 </ObjectDefinition>
