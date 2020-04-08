@@ -11,7 +11,8 @@ require_once '/opt/fmc_repository/Process/Reference/Common/common.php';
 function list_args()
 {
 }
+logToFile("update route on PNF (back to private cloud");
 
-task_success('Task OK');
+task_success('PNF route updated');
 
 ?>

@@ -12,6 +12,12 @@ function list_args()
 {
 }
 
-task_success('Task OK');
+logToFile("update route on uCPE VNF");
+
+
+/**
+ * End of the task (choose one)
+ */
+task_success('uCPE VNF route updated');
 
 ?>

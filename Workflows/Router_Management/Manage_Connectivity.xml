@@ -17,42 +17,10 @@
     <showVariables>false</showVariables>
     <visibility>5</visibility>
   </information>  <variables frozen="0"/>  <example>    <content/>  </example>
-  <process name="Process/IPA_Router_Management/Process_uCPE_set_route_to_pub_cloud">
-    <visibility>5</visibility>
-    <displayName>uCPE route to Pub Cloud</displayName>
-    <icon/>
-    <poolId>0</poolId>
-    <allowSchedule>false</allowSchedule>
-    <type>CREATE</type>
-    
-  </process>
-  <process name="Process/IPA_Router_Management/Process_PNF_set_route_to_pub_cloud">
-    <visibility>5</visibility>
-    <displayName>PNF route to Pub Cloud</displayName>
-    <icon/>
-    <poolId>0</poolId>
-    <allowSchedule>false</allowSchedule>
-    <type>CREATE</type>
-    
-  </process>
-  <process name="Process/IPA_Router_Management/Process_uCPE_set_route_to_priv_cloud">
-    <visibility>5</visibility>
-    <displayName>uCPE route to Priv Cloud</displayName>
-    <icon/>
-    <poolId>0</poolId>
-    <allowSchedule>false</allowSchedule>
-    <type>CREATE</type>
-    
-  </process>
-  <process name="Process/IPA_Router_Management/Process_PNF_set_route_to_priv_cloud">
-    <visibility>5</visibility>
-    <displayName>PNF route to Priv Cloud</displayName>
-    <icon/>
-    <poolId>0</poolId>
-    <allowSchedule>false</allowSchedule>
-    <type>CREATE</type>
-    
-  </process>
+  
+  
+  
+  
 <process name="Process/IAP_Router_Management/Process_move_to_trash">
     <visibility>5</visibility>
     <displayName>move to trash</displayName>
@@ -60,5 +28,53 @@
     <poolId>0</poolId>
     <allowSchedule>false</allowSchedule>
     <type>DELETE</type>
+  </process>
+<process name="Process/IAP_Router_Management/Process_uCPE_to_Public">
+    <visibility>5</visibility>
+    <displayName>uCPE to Public</displayName>
+    <icon/>
+    <poolId>0</poolId>
+    <allowSchedule>false</allowSchedule>
+    <type>CREATE</type>
+    <task name="Task_update_route.php">
+      <processPath>/opt/fmc_repository/Process/IAP_Router_Management/Process_uCPE_to_Public/Tasks/</processPath>
+      <displayName>update route</displayName>
+    </task>
+  </process>
+<process name="Process/IAP_Router_Management/Process_PNF_to_Public">
+    <visibility>5</visibility>
+    <displayName>PNF to Public</displayName>
+    <icon/>
+    <poolId>0</poolId>
+    <allowSchedule>false</allowSchedule>
+    <type>CREATE</type>
+    <task name="Task_update_route.php">
+      <processPath>/opt/fmc_repository/Process/IAP_Router_Management/Process_PNF_to_Public/Tasks/</processPath>
+      <displayName>update route</displayName>
+    </task>
+  </process>
+  <process name="Process/IAP_Router_Management/Process_uCPE_to_Private">
+    <visibility>5</visibility>
+    <displayName>uCPE to Private</displayName>
+    <icon/>
+    <poolId>0</poolId>
+    <allowSchedule>false</allowSchedule>
+    <type>CREATE</type>
+    <task name="Task_update_route.php">
+      <processPath>/opt/fmc_repository/Process/IAP_Router_Management/Process_uCPE_to_Private/Tasks/</processPath>
+      <displayName>update route</displayName>
+    </task>
+  </process>
+  <process name="Process/IAP_Router_Management/Process_PNF_to_Private">
+    <visibility>5</visibility>
+    <displayName>PNF to Private</displayName>
+    <icon/>
+    <poolId>0</poolId>
+    <allowSchedule>false</allowSchedule>
+    <type>CREATE</type>
+    <task name="Task_update_route.php">
+      <processPath>/opt/fmc_repository/Process/IAP_Router_Management/Process_PNF_to_Private/Tasks/</processPath>
+      <displayName>update route</displayName>
+    </task>
   </process>
 </ObjectDefinition>
