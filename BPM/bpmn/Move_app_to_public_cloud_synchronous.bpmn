@@ -7,11 +7,31 @@
     <bpmn:endEvent id="EndEvent_089b8wf">
       <bpmn:incoming>SequenceFlow_0cr29nr</bpmn:incoming>
     </bpmn:endEvent>
+    <bpmn:serviceTask id="Task_0cc5qwy" name="Manage Connectivity To Cloud">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/status/UBIA138?serviceName=Process%2FIAP_Router_Management%2FManage_Connectivity&amp;processName=Process%2FIAP_Router_Management%2FProcess_Do_Nothing</camunda:inputParameter>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODYyODYxNjIsImx2bCI6IjEiLCJleHAiOjE1ODYzNzI1NjJ9.Rnrc2qre1xywTbUAg8KP0khYy3O-jxt32AgZ3ux4Ausq-Kd5-YzZzP4vS_bAZqWufMy9FmiWvbYy2UHAJikRpA</camunda:entry>
+                <camunda:entry key="Accept">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="payload">{}</camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1lco3ow</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0cr29nr</bpmn:outgoing>
+    </bpmn:serviceTask>
     <bpmn:serviceTask id="Task_0626v49" name="Public Cloud VNF Management">
       <bpmn:extensionElements>
         <camunda:connector>
           <camunda:inputOutput>
-            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/UBIA138?serviceName=Process%2FIAP_Public_Cloud%2FAWS%2FInstance_Management%2FManage_VNF_on_AWS&amp;processName=Process%2FIAP_Public_Cloud%2FAWS_WF%2FProcess_CREATE</camunda:inputParameter>
+            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/status/UBIA138?serviceName=Process%2FIAP_Public_Cloud%2FAWS%2FInstance_Management%2FManage_VNF_on_AWS&amp;processName=Process%2FIAP_Public_Cloud%2FAWS_WF%2FProcess_CREATE</camunda:inputParameter>
             <camunda:inputParameter name="method">POST</camunda:inputParameter>
             <camunda:inputParameter name="headers">
               <camunda:map>
@@ -39,37 +59,17 @@
             <camunda:inputParameter name="method">POST</camunda:inputParameter>
             <camunda:inputParameter name="headers">
               <camunda:map>
-                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODYyODYxNjIsImx2bCI6IjEiLCJleHAiOjE1ODYzNzI1NjJ9.Rnrc2qre1xywTbUAg8KP0khYy3O-jxt32AgZ3ux4Ausq-Kd5-YzZzP4vS_bAZqWufMy9FmiWvbYy2UHAJikRpA</camunda:entry>
+                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODYyNzQ4NzQsImx2bCI6IjEiLCJleHAiOjE1ODYzNjEyNzR9.xVXgAWBLEXq66-EIe4mW4D8d2gIOcTRy8igI0axeZElf48UZI1zO-_HJ63n4v_8_5oVYQUSdUBipEK-BuJbeAw</camunda:entry>
                 <camunda:entry key="Accept">application/json</camunda:entry>
               </camunda:map>
             </camunda:inputParameter>
-            <camunda:inputParameter name="payload">{"service_fqdn":"app.iap.demo.","service_ip_addr":"3.115.192.248","device_id":"UBI485","next_hop":"192.168.0.10","service_private_ip_addr":"10.30.19.119","service_public_ip_addr":"3.115.192.248"}</camunda:inputParameter>
+            <camunda:inputParameter name="payload">{"service_ip_addr":"3.115.192.248","service_fqdn":"app.iap.demo."}</camunda:inputParameter>
           </camunda:inputOutput>
           <camunda:connectorId>http-connector</camunda:connectorId>
         </camunda:connector>
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_0tfyy62</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1lco3ow</bpmn:outgoing>
-    </bpmn:serviceTask>
-    <bpmn:serviceTask id="Task_0cc5qwy" name="Manage Connectivity To Cloud">
-      <bpmn:extensionElements>
-        <camunda:connector>
-          <camunda:inputOutput>
-            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/UBIA138?serviceName=Process%2FIAP_Router_Management%2FManage_Connectivity&amp;processName=Process%2FIAP_Router_Management%2FProcess_Branch_Router_Update</camunda:inputParameter>
-            <camunda:inputParameter name="method">POST</camunda:inputParameter>
-            <camunda:inputParameter name="headers">
-              <camunda:map>
-                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODYyODYxNjIsImx2bCI6IjEiLCJleHAiOjE1ODYzNzI1NjJ9.Rnrc2qre1xywTbUAg8KP0khYy3O-jxt32AgZ3ux4Ausq-Kd5-YzZzP4vS_bAZqWufMy9FmiWvbYy2UHAJikRpA</camunda:entry>
-                <camunda:entry key="Accept">application/json</camunda:entry>
-              </camunda:map>
-            </camunda:inputParameter>
-            <camunda:inputParameter name="payload">{"service_fqdn":"app.iap.demo.","service_ip_addr":"3.115.192.248","device_id":"UBI499","next_hop":"10.30.19.254","service_public_ip_addr":"3.115.192.248","service_private_ip_addr":"10.30.19.119"}</camunda:inputParameter>
-          </camunda:inputOutput>
-          <camunda:connectorId>http-connector</camunda:connectorId>
-        </camunda:connector>
-      </bpmn:extensionElements>
-      <bpmn:incoming>SequenceFlow_1lco3ow</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0cr29nr</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:textAnnotation id="TextAnnotation_05mc6wz">
       <bpmn:text>update the PNF router to route the traffic to internet</bpmn:text>
@@ -92,6 +92,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="EndEvent_089b8wf_di" bpmnElement="EndEvent_089b8wf">
         <dc:Bounds x="1032" y="162" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1586425243213_di" bpmnElement="Task_0cc5qwy">
+        <dc:Bounds x="800" y="140" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="ServiceTask_1586425374141_di" bpmnElement="Task_0626v49">
         <dc:Bounds x="290" y="140" width="100" height="80" />
@@ -133,11 +136,8 @@
         <di:waypoint x="900" y="180" />
         <di:waypoint x="1032" y="180" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="ServiceTask_1586444936910_di" bpmnElement="Task_1tkx6rv">
+      <bpmndi:BPMNShape id="ServiceTask_1586437873164_di" bpmnElement="Task_1tkx6rv">
         <dc:Bounds x="550" y="140" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="ServiceTask_1586444950143_di" bpmnElement="Task_0cc5qwy">
-        <dc:Bounds x="800" y="140" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
