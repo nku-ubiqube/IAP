@@ -22,11 +22,26 @@ main() {
 	ln -fs ../github_ubiqube_iap_public_cloud/Microservices/IAP IAP
 	ln -fs ../github_ubiqube_iap_public_cloud/Microservices/.meta_IAP .meta_IAP
 
-    #install private cloud WF and MS
+    #install private cloud WF
+	cd /opt/fmc_repository/
+	git clone https://github.com/ubiqube/IAP.git github_ubiqube_iap_private_cloud
+
 	cd /opt/fmc_repository/Process/
-	git clone https://github.com/ubiqube/IAP.git github_ubiqube_aip_private_cloud
-	ln -fs ../github_ubiqube_aip_private_cloud/Workflows/Private_Cloud IAP_Private_Cloud
-	ln -fs ../github_ubiqube_aip_private_cloud/Workflows/.meta_Private_Cloud .meta_IAP_Private_Cloud
+	mkdir -p IAP
+	ln -fs ../github_ubiqube_aip_private_cloud/Workflows/.meta_IAP .meta_IAP
+	ln -fs ../github_ubiqube_aip_private_cloud/Workflows/IAP/Private_Cloud IAP/Private_Cloud
+	ln -fs ../github_ubiqube_aip_private_cloud/Workflows/IAP/.meta_Private_Cloud IAP/.meta_Private_Cloud
+	mv Reference/MSActivator Reference/MSActivator_backup
+	mv Reference/OPENSTACK Reference/OPENSTACK_backup
+	ln -fs ../github_ubiqube_aip_private_cloud/Workflows/Reference/OPENSTACK Reference/OPENSTACK
+	ln -fs ../github_ubiqube_aip_private_cloud/Workflows/Reference/MSActivator Reference/MSActivator
+	mv Reference/Common/utility.php Reference/Common/utility.php_backup
+	ln -fs ../github_ubiqube_aip_private_cloud/Workflows/Reference/Common/utility.php Reference/Common/utility.php
+
+    #install private cloud configuration template
+	cd /opt/fmc_repository/Configuration
+	ln -fs ../github_ubiqube_aip_private_cloud/Configuration/FORTINET/FortigateVA/IAP_initial_config FORTINET/FortigateVA/IAP_initial_config
+	ln -fs ../github_ubiqube_aip_private_cloud/Configuration/FORTINET/FortigateVA/.meta_IAP_initial_config FORTINET/FortigateVA/.meta_IAP_initial_config
 
 	# install connectivity mngt
 	cd /opt/fmc_repository
