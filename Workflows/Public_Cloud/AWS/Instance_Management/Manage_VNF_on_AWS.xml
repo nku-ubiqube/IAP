@@ -237,6 +237,29 @@
     
     
     
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_Create_VM.php">
       <processPath/>
       <displayName>Launch Instance</displayName>
@@ -280,6 +303,10 @@
     <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_msa_attach_config_profil.php">
       <processPath/>
       <displayName>Attach Configuration Settings</displayName>
+    </task>
+    <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_CREATE/Tasks/Task_Synchronize_VNF_config.php">
+      <processPath/>
+      <displayName>Synchronize VNF config</displayName>
     </task>
   </process>
 	<process name="Process/Public_Cloud/AWS_WF/Process_Terminate_service">
@@ -331,7 +358,7 @@
     <icon/>
     <poolId>0</poolId>
     <allowSchedule>false</allowSchedule>
-    <type>UPDATE</type>
+    <type>CREATE</type>
     <task name="Task_update_policy.php">
       <processPath>/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_Update_Firewall_Policy/Tasks/</processPath>
       <displayName>update policy</displayName>
