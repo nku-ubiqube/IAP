@@ -79,7 +79,9 @@
     </bpmn:textAnnotation>
     <bpmn:association id="Association_001fx13" sourceRef="Task_1n0chjt" targetRef="TextAnnotation_028k2rm" />
     <bpmn:textAnnotation id="TextAnnotation_120nqrf">
-      <bpmn:text>- run sanity tests to verify the SDWAN Connectivity</bpmn:text>
+      <bpmn:text>- reconfiguration. of the routing
+- reconfiguration of security policies
+- run sanity tests to verify the SDWAN Connectivity</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_1tbsnqf" sourceRef="Task_07ey6ny" targetRef="TextAnnotation_120nqrf" />
   </bpmn:process>
@@ -166,11 +168,11 @@
         <di:waypoint x="1180" y="190" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_120nqrf_di" bpmnElement="TextAnnotation_120nqrf">
-        <dc:Bounds x="1119" y="-138" width="222" height="41" />
+        <dc:Bounds x="1119" y="-138" width="222" height="70" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_1tbsnqf_di" bpmnElement="Association_1tbsnqf">
         <di:waypoint x="1230" y="150" />
-        <di:waypoint x="1230" y="-97" />
+        <di:waypoint x="1230" y="-68" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="EndEvent_19p5qx1_di" bpmnElement="EndEvent_19p5qx1">
         <dc:Bounds x="1332" y="172" width="36" height="36" />

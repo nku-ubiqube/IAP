@@ -43,4 +43,5 @@ task_exit(ENDED, "Instance successfully rebooted. Id : " . $context["InstanceId"
 task_exit(ENDED, "No interface added, skipping reboot of instance: " . $context["InstanceId"]);
 }
 
+
 ?>

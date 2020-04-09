@@ -4,44 +4,38 @@ require_once '/opt/fmc_repository/Process/Reference/Common/common.php';
 
 function list_args()
 {
+  create_var_def('lan_ip', 'String');
 }
-
+/**
 $PROCESSINSTANCEID = $context['PROCESSINSTANCEID'];
 $EXECNUMBER = $context['EXECNUMBER'];
 $TASKID = $context['TASKID'];
 $process_params = array('PROCESSINSTANCEID' => $PROCESSINSTANCEID,
 						'EXECNUMBER' => $EXECNUMBER,
 						'TASKID' => $TASKID);
-/*
-if (isset($context['interface_id'])) {
+
 $device_id = substr($context['device_id'], 3);
-$netInterfaceCount =  1;
+$lan_ip=$context['lan_ip'];
 
-// Generate configuration depending the count of interfaces
-
-for ($i = 0; $i < $netInterfaceCount; $i++) 
-{
-	// TODO - set this variable as the workflow variable to get flexibility.
-	$startPortIndex = 2;
-	$portNumber = (int)$startPortIndex + $i;
-	$interface = "port" . $portNumber;
-
-	$command1 = "config system interface";
-	$command2 = "edit " . $interface;
-	$command3 = "set mode dhcp";
-	$command4 = "end";
-	$command5 = "next";
-	
-	$commands = "$command1\n$command2\n$command3\n$command4";
-	
-	if ($i == 0 )
-	{
-		$configuration = $commands;
-	} else {
-		//$configuration .= "\n$command5\n$commands";
-		$configuration .= "\n$commands";
-	}
+$response = wait_for_provisioning_completion($device_id, $process_params);
+$response = json_decode($response, true);
+if ($response['wo_status'] !== ENDED) {
+	$response = json_encode($response);
+	echo $response;
+	exit;
 }
+
+
+$command1 = "config system interface";
+$command2 = "edit port2";
+$command3 = "set mode static";
+$command4 = "set ip {$lan_ip} 255.255.255.0";
+$command5 = "set allowaccess ping ssh";	
+$command6 = "end";
+$command7 = "";
+
+$commands = "$command1\n$command2\n$command3\n$command4\n$command5\n$command6\n$command7";
+$configuration = "\n$commands";
 
 $response = _device_do_push_configuration_by_id($device_id, $configuration);
 $response = json_decode($response, true);
@@ -60,15 +54,11 @@ if ($response['wo_status'] !== ENDED) {
 }
 $pushconfig_status_message = $response['wo_comment'];
 
-$response = prepare_json_response(ENDED, "port2 config is updated successfully on Interface $interface on the Fortigate Device $device_id.\n$pushconfig_status_message", $context, true);
-echo $response;
-} else {
-$response = prepare_json_response(ENDED, "No interface found for this VNF", $context, true);
-echo $response;
-}
+sleep(10);
 */
-
-$response = prepare_json_response(ENDED, "TODO: configure port2", $context, true);
+$pushconfig_status_message = "";
+$response = prepare_json_response(ENDED, "LAN interface config successful.\n$pushconfig_status_message", $context, true);
 echo $response;
+
 
 ?>

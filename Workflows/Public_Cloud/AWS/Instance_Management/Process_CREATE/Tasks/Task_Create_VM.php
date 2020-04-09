@@ -21,6 +21,7 @@ function list_args()
   create_var_def('SubnetId', 'OBMFref');
   create_var_def('device_ip_address', 'String');
   create_var_def('interface_id', 'String');
+  create_var_def('lan_ip', 'String');
 }
 
 check_mandatory_param('ImageId');
@@ -28,6 +29,7 @@ check_mandatory_param('InstanceType');
 check_mandatory_param('SubnetId');
 check_mandatory_param('device_ip_address');
 check_mandatory_param('interface_id');
+check_mandatory_param('lan_ip');
 
 $PROCESSINSTANCEID = $context['PROCESSINSTANCEID'];
 $EXECNUMBER = $context['EXECNUMBER'];
@@ -102,6 +104,7 @@ try {
 	if (isset($result["Reservations"][0]["Instances"][0]["PublicIpAddress"]) && !empty($result["Reservations"][0]["Instances"][0]["PublicIpAddress"])) {
 	  
 	  $context["temp_device_ip_address"] = $result["Reservations"][0]["Instances"][0]["PublicIpAddress"];
+	  $context["device_private_address"] = $result["Reservations"][0]["Instances"][0]["PrivateIpAddress"];
 	} else {
 	  echo "FAILED: No \"$PublicIpAddress\" is assigned to the created instance from AWS.";
 	  exit;
@@ -111,6 +114,6 @@ try {
 }
 
 
-task_exit(ENDED, "instance ". $context["InstanceId"] . " / ".$context["temp_device_ip_address"]." created (temporary address)");
+task_exit(ENDED, "instance ". $context["InstanceId"] . " / " .$context["device_private_address"]." / ".$context["temp_device_ip_address"]." created");
 
 ?>

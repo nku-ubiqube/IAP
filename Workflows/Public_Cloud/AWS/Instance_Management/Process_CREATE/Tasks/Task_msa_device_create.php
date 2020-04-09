@@ -53,6 +53,9 @@ logToFile($wo_comment);
 $context['device_id'] = $device_id;
 
 $device_id_long = substr($context['device_id'], 3);
+$device_private_address = $context["device_private_address"];
+_configuration_variable_create ($device_id_long, "device_private_address", $device_private_address);
+
 
 /**
 * generate a hostname based on the public IP
@@ -79,6 +82,7 @@ if ($response['wo_status'] !== ENDED) {
 	echo $response;
 	exit;
 }
+
 
 $response = prepare_json_response(ENDED, "MSA Device created successfully.\n$wo_comment", $context, true);
 echo $response;
