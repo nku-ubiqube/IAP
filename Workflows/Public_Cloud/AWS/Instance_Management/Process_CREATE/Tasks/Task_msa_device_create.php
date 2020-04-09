@@ -23,7 +23,7 @@ check_mandatory_param('new_password');
 // MSA device creation parameters
 $customer_id = $context['customer_id'];
 $customer_db_id = substr($customer_id,4);
-$managed_device_name = $context["InstanceId"];
+$managed_device_name = "VNF-AWS-".$context["InstanceId"];
 $manufacturer_id = $context['manufacturer_id'];
 $model_id = $context['model_id'];
 $login = $context['login'];
