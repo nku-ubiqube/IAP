@@ -53,7 +53,7 @@
     <bpmn:sequenceFlow id="SequenceFlow_1omtogl" sourceRef="Task_0zoarn1" targetRef="Task_1itr6od" />
     <bpmn:sequenceFlow id="SequenceFlow_13xpsv0" sourceRef="Task_0626v49" targetRef="Task_0zoarn1" />
     <bpmn:sequenceFlow id="SequenceFlow_0q8g6zr" sourceRef="Task_1itr6od" targetRef="Task_1tkx6rv" />
-    <bpmn:serviceTask id="Task_0zoarn1" name="ENEA VNF Management">
+    <bpmn:serviceTask id="Task_0zoarn1" name="uCPE VNF Management">
       <bpmn:extensionElements>
         <camunda:connector>
           <camunda:inputOutput>
@@ -73,7 +73,7 @@
       <bpmn:incoming>SequenceFlow_13xpsv0</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1omtogl</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:serviceTask id="Task_1itr6od" name="ENEA VNF Management">
+    <bpmn:serviceTask id="Task_1itr6od" name="uCPE VNF Management">
       <bpmn:extensionElements>
         <camunda:connector>
           <camunda:inputOutput>
