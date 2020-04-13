@@ -126,11 +126,11 @@
         <di:waypoint x="670" y="190" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_1xhm70s_di" bpmnElement="TextAnnotation_1xhm70s">
-        <dc:Bounds x="640" y="-60" width="174" height="98" />
+        <dc:Bounds x="633" y="-60" width="174" height="98" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_1rypdi4_di" bpmnElement="Association_1rypdi4">
-        <di:waypoint x="721" y="150" />
-        <di:waypoint x="725" y="38" />
+        <di:waypoint x="720" y="150" />
+        <di:waypoint x="720" y="38" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Task_0y7oxdy_di" bpmnElement="Task_0y7oxdy">
         <dc:Bounds x="850" y="150" width="100" height="80" />
