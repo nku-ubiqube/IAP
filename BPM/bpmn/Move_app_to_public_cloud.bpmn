@@ -53,46 +53,6 @@
     <bpmn:sequenceFlow id="SequenceFlow_1omtogl" sourceRef="Task_0zoarn1" targetRef="Task_1itr6od" />
     <bpmn:sequenceFlow id="SequenceFlow_13xpsv0" sourceRef="Task_0626v49" targetRef="Task_0zoarn1" />
     <bpmn:sequenceFlow id="SequenceFlow_0q8g6zr" sourceRef="Task_1itr6od" targetRef="Task_1tkx6rv" />
-    <bpmn:serviceTask id="Task_0zoarn1" name="uCPE VNF Management">
-      <bpmn:extensionElements>
-        <camunda:connector>
-          <camunda:inputOutput>
-            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/UBIA138?serviceName=Process%2FENEA%2FVNF_Management%2FVNF_Management&amp;processName=Process%2FENEA%2FVNF_Management%2FProcess_Create_new_VNF</camunda:inputParameter>
-            <camunda:inputParameter name="method">POST</camunda:inputParameter>
-            <camunda:inputParameter name="headers">
-              <camunda:map>
-                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODY1MTQ2NTEsImx2bCI6IjEiLCJleHAiOjE1ODY2MDEwNTF9.xOGvTtDHeomdd9fsSVS1bQMxH-ghtypvK8WgBtCfT56X6ty1WRFZA_ScL81dGTKIgBNJjrHscJnVdY_1M-jn6A</camunda:entry>
-                <camunda:entry key="Accept">application/json</camunda:entry>
-              </camunda:map>
-            </camunda:inputParameter>
-            <camunda:inputParameter name="payload">{"device_id":"UBI552","vnf_descriptor":"13d72077-4e4f-11ea-81dc-005056b2c593","ucpe_devices":"1010","vnf_name":"flexiWAN_VNF","customer_id":"UBIA138","manufacturer_id":"14020601","model_id":"14020601","device_ip_address":"10.31.1.213","login":"root","password":"$ubiqube","new_password":"$ubiqube","snmp_community":"myComunity","nics_1_id":"LAN","nics_1_type":"Dpdk","nics_1_interfacename":"lan_rb","nics_2_id":"WAN","nics_2_type":"Dpdk","nics_2_interfacename":"svc_br"}</camunda:inputParameter>
-          </camunda:inputOutput>
-          <camunda:connectorId>http-connector</camunda:connectorId>
-        </camunda:connector>
-      </bpmn:extensionElements>
-      <bpmn:incoming>SequenceFlow_13xpsv0</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1omtogl</bpmn:outgoing>
-    </bpmn:serviceTask>
-    <bpmn:serviceTask id="Task_1itr6od" name="uCPE VNF Management">
-      <bpmn:extensionElements>
-        <camunda:connector>
-          <camunda:inputOutput>
-            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/UBIA138?serviceName=Process%2FENEA%2FVNF_Management%2FVNF_Management&amp;processName=Process%2FENEA%2FVNF_Management%2FProcess_Create_new_VNF</camunda:inputParameter>
-            <camunda:inputParameter name="method">POST</camunda:inputParameter>
-            <camunda:inputParameter name="headers">
-              <camunda:map>
-                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODY1MTQ2NTEsImx2bCI6IjEiLCJleHAiOjE1ODY2MDEwNTF9.xOGvTtDHeomdd9fsSVS1bQMxH-ghtypvK8WgBtCfT56X6ty1WRFZA_ScL81dGTKIgBNJjrHscJnVdY_1M-jn6A</camunda:entry>
-                <camunda:entry key="Accept">application/json</camunda:entry>
-              </camunda:map>
-            </camunda:inputParameter>
-            <camunda:inputParameter name="payload">{"device_id":"UBI552","nics_3_id":"mgmbr","nics_3_type":"Dpdk","nics_2_type":"Dpdk","nics_2_interfacename":"svc_br","customer_id":"UBIA138","manufacturer_id":"14020601","model_id":"14020601","device_ip_address":"10.31.1.213","login":"root","password":"$ubiqube","new_password":"$ubiqube","snmp_community":"myCommunity","vnf_descriptor":"3b29808a-5248-11ea-81dc-005056b2c593","ucpe_devices":"1010","vnf_name":"pfsense_VNF","nics_1_id":"lan","nics_1_type":"Dpdk","nics_1_interfacename":"lan_br","nics_2_id":"wan","nics_3_interfacename":"lan_br"}</camunda:inputParameter>
-          </camunda:inputOutput>
-          <camunda:connectorId>http-connector</camunda:connectorId>
-        </camunda:connector>
-      </bpmn:extensionElements>
-      <bpmn:incoming>SequenceFlow_1omtogl</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0q8g6zr</bpmn:outgoing>
-    </bpmn:serviceTask>
     <bpmn:serviceTask id="Task_0cc5qwy" name="Manage Connectivity To Cloud">
       <bpmn:extensionElements>
         <camunda:connector>
@@ -112,6 +72,46 @@
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1lco3ow</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0cr29nr</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_0zoarn1" name="uCPE VNF Management">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/UBIA138?serviceName=Process%2FENEA%2FVNF_Management%2FVNF_Management&amp;processName=Process%2FENEA%2FVNF_Management%2FProcess_Create_new_VNF</camunda:inputParameter>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODY3Njk5MDgsImx2bCI6IjEiLCJleHAiOjE1ODY4NTYzMDh9.uzFaQ9cBESK6d5xBiqX94tHJ9KzDpGGPZN0XHRZ3l4IoahzUL0RBoHdDTuExg2ESgzf2A6QOdXg9VrBsT8ShIg</camunda:entry>
+                <camunda:entry key="Accept">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="payload">{"device_id":"UBI552","vnf_descriptor":"13d72077-4e4f-11ea-81dc-005056b2c593","ucpe_devices":"1010","vnf_name":"flexiWAN_VNF","customer_id":"UBIA138","manufacturer_id":"14020601","model_id":"14020601","device_ip_address":"10.31.1.213","login":"root","password":"$ubiqube","new_password":"$ubiqube","snmp_community":"myComunity","nics_1_id":"LAN","nics_1_type":"Dpdk","nics_1_interfacename":"lan_rb","nics_2_id":"WAN","nics_2_type":"Dpdk","nics_2_interfacename":"svc_br","exec_delay":"1"}</camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_13xpsv0</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1omtogl</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_1itr6od" name="uCPE VNF Management">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/UBIA138?serviceName=Process%2FENEA%2FVNF_Management%2FVNF_Management&amp;processName=Process%2FENEA%2FVNF_Management%2FProcess_Create_new_VNF</camunda:inputParameter>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODY3Njk5MDgsImx2bCI6IjEiLCJleHAiOjE1ODY4NTYzMDh9.uzFaQ9cBESK6d5xBiqX94tHJ9KzDpGGPZN0XHRZ3l4IoahzUL0RBoHdDTuExg2ESgzf2A6QOdXg9VrBsT8ShIg</camunda:entry>
+                <camunda:entry key="Accept">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="payload">{"device_id":"UBI552","nics_3_id":"mgmbr","nics_3_type":"Dpdk","nics_2_type":"Dpdk","nics_2_interfacename":"svc_br","customer_id":"UBIA138","manufacturer_id":"14020601","model_id":"14020601","device_ip_address":"10.31.1.213","login":"root","password":"$ubiqube","new_password":"$ubiqube","snmp_community":"myCommunity","vnf_descriptor":"3b29808a-5248-11ea-81dc-005056b2c593","ucpe_devices":"1010","vnf_name":"pfsense_VNF","nics_1_id":"lan","nics_1_type":"Dpdk","nics_1_interfacename":"lan_br","nics_2_id":"wan","nics_3_interfacename":"lan_br","exec_delay":"20"}</camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1omtogl</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0q8g6zr</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:textAnnotation id="TextAnnotation_05mc6wz">
       <bpmn:text>Configure the PNF router to route traffic to internet
@@ -227,12 +227,6 @@ CPE on uCPE and PNF are updated</bpmn:text>
         <di:waypoint x="630" y="400" />
         <di:waypoint x="630" y="460" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="ServiceTask_1586519963117_di" bpmnElement="Task_0zoarn1">
-        <dc:Bounds x="290" y="320" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="ServiceTask_1586521163093_di" bpmnElement="Task_1itr6od">
-        <dc:Bounds x="580" y="320" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_19ql58w_di" bpmnElement="TextAnnotation_19ql58w">
         <dc:Bounds x="820" y="467" width="220" height="55" />
       </bpmndi:BPMNShape>
@@ -242,6 +236,12 @@ CPE on uCPE and PNF are updated</bpmn:text>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ServiceTask_1586767292519_di" bpmnElement="Task_0cc5qwy">
         <dc:Bounds x="880" y="140" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1586858867645_di" bpmnElement="Task_0zoarn1">
+        <dc:Bounds x="290" y="320" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1586858875990_di" bpmnElement="Task_1itr6od">
+        <dc:Bounds x="580" y="320" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
