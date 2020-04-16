@@ -13,8 +13,10 @@ use Aws\Ec2\Ec2Client;
  */
 function list_args()
 {
-	create_var_def('interface_id', 'String');
+	//create_var_def('interface_id', 'String');
 }
+
+$context["interface_id"] = "eni-004b52afd89440c7d";
 
 $ec2Client = Ec2Client::factory(array(
     'key'    => $context["key"],
