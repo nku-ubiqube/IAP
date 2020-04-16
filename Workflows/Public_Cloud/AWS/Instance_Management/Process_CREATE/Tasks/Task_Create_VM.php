@@ -13,23 +13,27 @@ use Aws\Ec2\Ec2Client;
  */
 function list_args()
 {
-  create_var_def('AwsDeviceId', 'Device');
-  create_var_def('deviceId', 'Device');
-  create_var_def('ImageId', 'String');
+  //create_var_def('AwsDeviceId', 'Device');
+  // create_var_def('deviceId', 'Device');
+  // create_var_def('ImageId', 'String');
   create_var_def('InstanceType', 'String');
   create_var_def('security_group', 'String');
   create_var_def('SubnetId', 'OBMFref');
   create_var_def('device_ip_address', 'String');
-  create_var_def('interface_id', 'String');
+  //create_var_def('interface_id', 'String');
   create_var_def('lan_ip', 'String');
 }
 
-check_mandatory_param('ImageId');
+
 check_mandatory_param('InstanceType');
 check_mandatory_param('SubnetId');
 check_mandatory_param('device_ip_address');
-check_mandatory_param('interface_id');
 check_mandatory_param('lan_ip');
+//check_mandatory_param('ImageId');
+//check_mandatory_param('interface_id');
+
+$context["AwsDeviceId"] = "UBI486";
+$context["ImageId"] = "ami-094e94d549d64a3ce";
 
 $PROCESSINSTANCEID = $context['PROCESSINSTANCEID'];
 $EXECNUMBER = $context['EXECNUMBER'];
