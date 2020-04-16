@@ -3,7 +3,7 @@
 require_once '/opt/fmc_repository/Process/Reference/Common/common.php';
 
 function list_args() {
-	create_var_def('conf_profile_reference', 'String');
+//	create_var_def('conf_profile_reference', 'String');
 
 }
 
@@ -17,6 +17,7 @@ $process_params = array('PROCESSINSTANCEID' => $PROCESSINSTANCEID,
 
 $device_id = substr($context['device_id'], 3);
 $device_reference = $context['device_id'];
+$context['conf_profile_reference'] = "IAP_FGT_AWS";
 
 if (isset($context['conf_profile_reference'])) {
   $conf_profile_ref = $context['conf_profile_reference'];
