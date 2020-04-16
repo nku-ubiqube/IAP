@@ -3,22 +3,36 @@
 require_once '/opt/fmc_repository/Process/Reference/Common/common.php';
 
 function list_args() {
-	create_var_def('customer_id', 'Integer');
-	create_var_def('manufacturer_id', 'Integer');
-	create_var_def('model_id', 'Integer');
+
 	create_var_def('device_ip_address', 'IP Address');
-	create_var_def('login', 'String');
-	create_var_def('password', 'Password');
-	create_var_def('new_password', 'Password');
-	create_var_def('snmp_community', 'String');
+	//create_var_def('customer_id', 'Integer');
+	//create_var_def('manufacturer_id', 'Integer');
+	//create_var_def('model_id', 'Integer');
+	//create_var_def('login', 'String');
+	//create_var_def('password', 'Password');
+	//create_var_def('new_password', 'Password');
+	//create_var_def('snmp_community', 'String');
 }
 
-check_mandatory_param('customer_id');
+//check_mandatory_param('customer_id');
+//check_mandatory_param('manufacturer_id');
+//check_mandatory_param('model_id');
+//check_mandatory_param('login');
+//check_mandatory_param('new_password');
 
-check_mandatory_param('manufacturer_id');
-check_mandatory_param('model_id');
-check_mandatory_param('login');
-check_mandatory_param('new_password');
+$PROCESSINSTANCEID = $context['PROCESSINSTANCEID'];
+$EXECNUMBER = $context['EXECNUMBER'];
+$TASKID = $context['TASKID'];
+$process_params = array('PROCESSINSTANCEID' => $PROCESSINSTANCEID,
+						'EXECNUMBER' => $EXECNUMBER,
+						'TASKID' => $TASKID);
+
+$context['customer_id'] = $context['UBIQUBEID'];
+$context['login'] = "admin";
+$context['new_password'] = "AZERTY123456789";
+$context['manufacturer_id'] = 17;
+$context['model_id'] = 15102617;
+$context['snmp_community'] = "my_community";
 
 // MSA device creation parameters
 $customer_id = $context['customer_id'];
