@@ -6,7 +6,7 @@
     <displayField>service_id</displayField>
     <executionDetailsVisibility>5</executionDetailsVisibility>
     <executionMode>TRANSACTION</executionMode>
-    <group>Public Cloud|AWS</group>
+    <group>IAP|Public Cloud|AWS</group>
     <icon>/images/eclipseIcons/page_obj.gif</icon>
     <name>Public Cloud VNF Management</name>
     <order>10000</order>
@@ -315,19 +315,18 @@
 		<icon/>
 		<allowSchedule>false</allowSchedule>
 		<type>DELETE</type>
-	<task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_Terminate_VNFC/Tasks/Task_Delete_VM_on_AWS.php">
+	
+    
+    
+  
+  <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_Terminate_VNFC/Tasks/Task_Delete_VM_on_AWS.php">
       <processPath/>
       <displayName>Terminate Instance</displayName>
-    </task>
-    <task name="/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_Terminate_VNFC/Tasks/Task_Wait.php">
-      <processPath/>
-      <displayName>Wait</displayName>
     </task>
     <task name="/opt/fmc_repository/Process/Reference/MSActivator/Device/Task_msa_device_delete.php">
       <processPath/>
       <displayName>Delete Device</displayName>
     </task>
-  <compensation/>
   </process>
 
 
