@@ -6,7 +6,7 @@ require_once '/opt/fmc_repository/Process/Reference/Common/common.php';
 
 
 // Wait terminate instance is done ...
-sleep(60);
+sleep(20);
 
 task_exit(ENDED, "Wait END.");
 
