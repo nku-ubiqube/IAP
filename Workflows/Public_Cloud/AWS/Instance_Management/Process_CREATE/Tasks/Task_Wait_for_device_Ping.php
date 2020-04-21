@@ -23,10 +23,10 @@ $process_params = array('PROCESSINSTANCEID' => $PROCESSINSTANCEID,
 
 
 $a = ".";
-for ($index = 0; $index < 6; $index++) {
+for ($index = 0; $index < 5; $index++) {
     $a .= ".";
     update_asynchronous_task_details($context, "Wait for device Ping" . $a . "\nloop no : " . ($index+1));
-    sleep(10);
+    sleep(2);
 }
 
 
