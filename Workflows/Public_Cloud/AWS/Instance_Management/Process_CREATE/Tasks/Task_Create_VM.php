@@ -117,6 +117,19 @@ try {
    task_exit(FAILED, "Error : $e");
 }
 
+$array_tag = array(
+		'Resources' => array("1" => $context ['InstanceId']),
+		'Tags' => array (
+				"1" => array('Key' => 'Project', 'Value' => 'IAP demo'),
+				"2" => array('Key' => 'Name', 'Value' => 'IAP VNF'),
+				),
+		);
+logToFile ( debug_dump ( $array_tag, "AWS tag instance request array\n" ) );
+
+$result = $ec2Client->createTags ( $array_tag );
+
+logToFile ( "tag instances successful : $result" );
+
 
 task_exit(ENDED, "instance ". $context["InstanceId"] . " / " .$context["device_private_address"]." / ".$context["temp_device_ip_address"]." created");
 

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn:process id="BPM_PROCESS_138_1587548122685" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_1p53bgo</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1p53bgo" sourceRef="StartEvent_1" targetRef="Task_091evon" />
+    <bpmn:sequenceFlow id="SequenceFlow_0f4tte9" sourceRef="Task_091evon" targetRef="Task_0ij7wqa" />
+    <bpmn:sequenceFlow id="SequenceFlow_14hsq1z" sourceRef="Task_0ij7wqa" targetRef="Task_1n3vz9y" />
+    <bpmn:endEvent id="EndEvent_023hqj8">
+      <bpmn:incoming>SequenceFlow_04u6gvh</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_04u6gvh" sourceRef="Task_1n3vz9y" targetRef="EndEvent_023hqj8" />
+    <bpmn:serviceTask id="Task_091evon" name="Application Management">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/UBIA138?serviceName=Process%2FApplication_Management%2FApplication_Management&amp;processName=Process%2FApplication_Management%2FProcess_start_application</camunda:inputParameter>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODc1NDc3MDgsImx2bCI6IjEiLCJleHAiOjE1ODc2MzQxMDh9.mea4VPnqYm_j7bWxDkHYzNZ0qNICTVUXyzrZ_I7ZGE5wX1tJxn7SXVVjIV4dOcwj09pZXPsaw-d81Xsz-8Eydg</camunda:entry>
+                <camunda:entry key="Accept">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="payload">{}</camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1p53bgo</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0f4tte9</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_0ij7wqa" name="Application Management">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/UBIA138?serviceName=Process%2FApplication_Management%2FApplication_Management&amp;processName=Process%2FApplication_Management%2FProcess_Connect_instance</camunda:inputParameter>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODc1NDc3MDgsImx2bCI6IjEiLCJleHAiOjE1ODc2MzQxMDh9.mea4VPnqYm_j7bWxDkHYzNZ0qNICTVUXyzrZ_I7ZGE5wX1tJxn7SXVVjIV4dOcwj09pZXPsaw-d81Xsz-8Eydg</camunda:entry>
+                <camunda:entry key="Accept">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="payload">{}</camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0f4tte9</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_14hsq1z</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_1n3vz9y" name="Application Management">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/UBIA138?serviceName=Process%2FApplication_Management%2FApplication_Management&amp;processName=Process%2FApplication_Management%2FProcess_register_managed_entity</camunda:inputParameter>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODc1NDc3MDgsImx2bCI6IjEiLCJleHAiOjE1ODc2MzQxMDh9.mea4VPnqYm_j7bWxDkHYzNZ0qNICTVUXyzrZ_I7ZGE5wX1tJxn7SXVVjIV4dOcwj09pZXPsaw-d81Xsz-8Eydg</camunda:entry>
+                <camunda:entry key="Accept">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="payload">{}</camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_14hsq1z</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_04u6gvh</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="BPM_PROCESS_138_1587548122685">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="232" y="212" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1p53bgo_di" bpmnElement="SequenceFlow_1p53bgo">
+        <di:waypoint x="268" y="230" />
+        <di:waypoint x="380" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0f4tte9_di" bpmnElement="SequenceFlow_0f4tte9">
+        <di:waypoint x="480" y="230" />
+        <di:waypoint x="570" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_14hsq1z_di" bpmnElement="SequenceFlow_14hsq1z">
+        <di:waypoint x="670" y="230" />
+        <di:waypoint x="780" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_023hqj8_di" bpmnElement="EndEvent_023hqj8">
+        <dc:Bounds x="1022" y="212" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_04u6gvh_di" bpmnElement="SequenceFlow_04u6gvh">
+        <di:waypoint x="880" y="230" />
+        <di:waypoint x="1022" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_1587561819306_di" bpmnElement="Task_091evon">
+        <dc:Bounds x="380" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1587561825926_di" bpmnElement="Task_0ij7wqa">
+        <dc:Bounds x="570" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1587561833834_di" bpmnElement="Task_1n3vz9y">
+        <dc:Bounds x="780" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
