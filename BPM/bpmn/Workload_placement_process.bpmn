@@ -1,186 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
-  <bpmn:process id="Process_1" isExecutable="true">
-    <bpmn:startEvent id="StartEvent_1">
-      <bpmn:outgoing>SequenceFlow_18h2jhv</bpmn:outgoing>
-    </bpmn:startEvent>
-    <bpmn:task id="Task_198vprt" name="Move app">
-      <bpmn:incoming>SequenceFlow_18h2jhv</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0q4er5z</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:sequenceFlow id="SequenceFlow_18h2jhv" sourceRef="StartEvent_1" targetRef="Task_198vprt" />
-    <bpmn:task id="Task_0jvdame" name="Public Cloud: Instantiate Security C/VNF">
-      <bpmn:incoming>SequenceFlow_0q4er5z</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0yr03g0</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:sequenceFlow id="SequenceFlow_0q4er5z" sourceRef="Task_198vprt" targetRef="Task_0jvdame" />
-    <bpmn:task id="Task_0o8cq4b" name="uCPE: Instantiate Security C/VNF">
-      <bpmn:incoming>SequenceFlow_0yr03g0</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0nyt7mt</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:sequenceFlow id="SequenceFlow_0yr03g0" sourceRef="Task_0jvdame" targetRef="Task_0o8cq4b" />
-    <bpmn:task id="Task_0y7oxdy" name="Public Cloud: instantiate SDWAN VNF">
-      <bpmn:incoming>SequenceFlow_0nyt7mt</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0z0mshd</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:sequenceFlow id="SequenceFlow_0nyt7mt" sourceRef="Task_0o8cq4b" targetRef="Task_0y7oxdy" />
-    <bpmn:task id="Task_1n0chjt" name="uCPE: instantiate SDWAN VNF">
-      <bpmn:incoming>SequenceFlow_0z0mshd</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1bzzftb</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:sequenceFlow id="SequenceFlow_0z0mshd" sourceRef="Task_0y7oxdy" targetRef="Task_1n0chjt" />
-    <bpmn:task id="Task_07ey6ny" name="Establish  connectivity">
-      <bpmn:incoming>SequenceFlow_1bzzftb</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1osxgna</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:sequenceFlow id="SequenceFlow_1bzzftb" sourceRef="Task_1n0chjt" targetRef="Task_07ey6ny" />
-    <bpmn:endEvent id="EndEvent_19p5qx1">
-      <bpmn:incoming>SequenceFlow_1osxgna</bpmn:incoming>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1onuene" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.2">
+  <bpmn:collaboration id="Collaboration_05vorkv">
+    <bpmn:participant id="Participant_1yayfdx" name="workload placement" processRef="Process_10b7i2i" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_10b7i2i" isExecutable="true">
+    <bpmn:laneSet id="LaneSet_0i0vci9">
+      <bpmn:lane id="Lane_1u5niya">
+        <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_08apg6x">
+        <bpmn:flowNodeRef>Activity_1q3x2yn</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_0ids52t">
+        <bpmn:flowNodeRef>Activity_0jz86c4</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_056t4gg">
+        <bpmn:flowNodeRef>Event_06mtmec</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:endEvent id="Event_06mtmec">
+      <bpmn:incoming>Flow_1pzmnrx</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_1osxgna" sourceRef="Task_07ey6ny" targetRef="EndEvent_19p5qx1" />
-    <bpmn:textAnnotation id="TextAnnotation_05ij17r">
-      <bpmn:text>- create the subnet   
-- create an interface 
-- start the app 
-- configure the app</bpmn:text>
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_17udx8c</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_17udx8c" sourceRef="StartEvent_1" targetRef="Activity_1q3x2yn" />
+    <bpmn:sequenceFlow id="Flow_1fpbqha" sourceRef="Activity_1q3x2yn" targetRef="Activity_0jz86c4" />
+    <bpmn:sequenceFlow id="Flow_1pzmnrx" sourceRef="Activity_0jz86c4" targetRef="Event_06mtmec" />
+    <bpmn:serviceTask id="Activity_1q3x2yn" name="update infrastructure">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/UBIA138?serviceName=Process%2FWorkload_placement%2FWorkload_placement&amp;processName=Process%2Fupdate_infrastructure%2FProcess_update_infrastructure</camunda:inputParameter>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODc2NDEzNjYsImx2bCI6IjEiLCJleHAiOjE1ODc3Mjc3NjZ9.bfkFgfN7Fa9IiEAk6NLGf4Q_ELLj5j2n4cVyVJSNdhji4HocgyWvLCWlVRPQdGYAHuSpalE-3TZi3VEa9ck0cQ</camunda:entry>
+                <camunda:entry key="Accept">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="payload">{}</camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_17udx8c</bpmn:incoming>
+      <bpmn:outgoing>Flow_1fpbqha</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0jz86c4" name="move application">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/UBIA138?serviceName=Process%2Fmove_application%2Fmove_application&amp;processName=Process%2Fmove_application%2FProcess_move_application</camunda:inputParameter>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODc2NDEzNjYsImx2bCI6IjEiLCJleHAiOjE1ODc3Mjc3NjZ9.bfkFgfN7Fa9IiEAk6NLGf4Q_ELLj5j2n4cVyVJSNdhji4HocgyWvLCWlVRPQdGYAHuSpalE-3TZi3VEa9ck0cQ</camunda:entry>
+                <camunda:entry key="Accept">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="payload">{}</camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1fpbqha</bpmn:incoming>
+      <bpmn:outgoing>Flow_1pzmnrx</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:textAnnotation id="TextAnnotation_0qckahe">
+      <bpmn:text>execute the infrastructure management BPM
+- create the security VNF
+- create the SDWAN VNF
+- update the connectivity</bpmn:text>
     </bpmn:textAnnotation>
-    <bpmn:association id="Association_1x53f3h" sourceRef="Task_198vprt" targetRef="TextAnnotation_05ij17r" />
-    <bpmn:textAnnotation id="TextAnnotation_10gdrn4">
-      <bpmn:text>- launch the VNF instance
-- create a LAN interface 
-- add the interface to VNF  
-- configure the LAN interface on the VNF   
-- configure the FW policy</bpmn:text>
+    <bpmn:textAnnotation id="TextAnnotation_1aogv93">
+      <bpmn:text>execute the application management BPM
+- launch the application
+- connect the application
+- register the application</bpmn:text>
     </bpmn:textAnnotation>
-    <bpmn:association id="Association_07nm4zz" sourceRef="Task_0jvdame" targetRef="TextAnnotation_10gdrn4" />
-    <bpmn:textAnnotation id="TextAnnotation_1xhm70s">
-      <bpmn:text>- launch the VNF instance
-- create a LAN interface
-- add the interface to VNF  
-- configure the LAN interface on the VNF   
-- configure the FW policy</bpmn:text>
+    <bpmn:textAnnotation id="TextAnnotation_0h7byxp">
+      <bpmn:text>process to move an application from the private cloud to the public cloud</bpmn:text>
     </bpmn:textAnnotation>
-    <bpmn:association id="Association_1rypdi4" sourceRef="Task_0o8cq4b" targetRef="TextAnnotation_1xhm70s" />
-    <bpmn:textAnnotation id="TextAnnotation_1njxwfx">
-      <bpmn:text>- launch the VNF instance
-- allocate a public IP
-- create a LAN interface
-- add the interface to VNF  
-- configure the LAN interface on the VNF   
-- configure the VPN end-point</bpmn:text>
-    </bpmn:textAnnotation>
-    <bpmn:association id="Association_0z52gkk" sourceRef="Task_0y7oxdy" targetRef="TextAnnotation_1njxwfx" />
-    <bpmn:textAnnotation id="TextAnnotation_028k2rm">
-      <bpmn:text>- launch the VNF instance
-- create a LAN interface
-- add the interface to VNF  
-- configure the LAN interface on the VNF   
-- configure the VPN end-point</bpmn:text>
-    </bpmn:textAnnotation>
-    <bpmn:association id="Association_001fx13" sourceRef="Task_1n0chjt" targetRef="TextAnnotation_028k2rm" />
-    <bpmn:textAnnotation id="TextAnnotation_120nqrf">
-      <bpmn:text>- reconfiguration. of the routing
-- reconfiguration of security policies
-- run sanity tests to verify the SDWAN Connectivity</bpmn:text>
-    </bpmn:textAnnotation>
-    <bpmn:association id="Association_1tbsnqf" sourceRef="Task_07ey6ny" targetRef="TextAnnotation_120nqrf" />
+    <bpmn:association id="Association_05tbqvr" sourceRef="Activity_1q3x2yn" targetRef="TextAnnotation_0qckahe" />
+    <bpmn:association id="Association_1rgh0u7" sourceRef="Activity_0jz86c4" targetRef="TextAnnotation_1aogv93" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_05vorkv">
+      <bpmndi:BPMNShape id="Participant_1yayfdx_di" bpmnElement="Participant_1yayfdx" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="960" height="520" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1u5niya_di" bpmnElement="Lane_1u5niya" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="930" height="148" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_08apg6x_di" bpmnElement="Lane_08apg6x" isHorizontal="true">
+        <dc:Bounds x="190" y="228" width="930" height="132" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_0ids52t_di" bpmnElement="Lane_0ids52t" isHorizontal="true">
+        <dc:Bounds x="190" y="360" width="930" height="140" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_056t4gg_di" bpmnElement="Lane_056t4gg" isHorizontal="true">
+        <dc:Bounds x="190" y="500" width="930" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0qckahe_di" bpmnElement="TextAnnotation_0qckahe">
+        <dc:Bounds x="670" y="252" width="259" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1aogv93_di" bpmnElement="TextAnnotation_1aogv93">
+        <dc:Bounds x="820" y="378" width="240" height="82" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0h7byxp_di" bpmnElement="TextAnnotation_0h7byxp">
+        <dc:Bounds x="740" y="100" width="300" height="46" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_17udx8c_di" bpmnElement="Flow_17udx8c">
+        <di:waypoint x="250" y="181" />
+        <di:waypoint x="250" y="290" />
+        <di:waypoint x="400" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1fpbqha_di" bpmnElement="Flow_1fpbqha">
+        <di:waypoint x="450" y="330" />
+        <di:waypoint x="450" y="419" />
+        <di:waypoint x="640" y="419" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1pzmnrx_di" bpmnElement="Flow_1pzmnrx">
+        <di:waypoint x="690" y="459" />
+        <di:waypoint x="690" y="550" />
+        <di:waypoint x="1012" y="550" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_06mtmec_di" bpmnElement="Event_06mtmec">
+        <dc:Bounds x="1012" y="532" width="36" height="36" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
-        <dc:Bounds x="232" y="172" width="36" height="36" />
+        <dc:Bounds x="232" y="145" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Task_198vprt_di" bpmnElement="Task_198vprt">
-        <dc:Bounds x="330" y="150" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="SequenceFlow_18h2jhv_di" bpmnElement="SequenceFlow_18h2jhv">
-        <di:waypoint x="268" y="190" />
-        <di:waypoint x="330" y="190" />
+      <bpmndi:BPMNEdge id="Association_05tbqvr_di" bpmnElement="Association_05tbqvr">
+        <di:waypoint x="500" y="290" />
+        <di:waypoint x="670" y="290" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="TextAnnotation_05ij17r_di" bpmnElement="TextAnnotation_05ij17r">
-        <dc:Bounds x="281" y="20" width="197" height="70" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Association_1x53f3h_di" bpmnElement="Association_1x53f3h">
-        <di:waypoint x="380" y="150" />
-        <di:waypoint x="380" y="90" />
+      <bpmndi:BPMNEdge id="Association_1rgh0u7_di" bpmnElement="Association_1rgh0u7">
+        <di:waypoint x="740" y="419" />
+        <di:waypoint x="820" y="420" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Task_0jvdame_di" bpmnElement="Task_0jvdame">
-        <dc:Bounds x="510" y="150" width="100" height="80" />
+      <bpmndi:BPMNShape id="ServiceTask_1587642178553_di" bpmnElement="Activity_1q3x2yn">
+        <dc:Bounds x="400" y="250" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="SequenceFlow_0q4er5z_di" bpmnElement="SequenceFlow_0q4er5z">
-        <di:waypoint x="430" y="190" />
-        <di:waypoint x="510" y="190" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="TextAnnotation_10gdrn4_di" bpmnElement="TextAnnotation_10gdrn4">
-        <dc:Bounds x="423" y="-170" width="273" height="84" />
+      <bpmndi:BPMNShape id="ServiceTask_1587642185422_di" bpmnElement="Activity_0jz86c4">
+        <dc:Bounds x="640" y="379" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Association_07nm4zz_di" bpmnElement="Association_07nm4zz">
-        <di:waypoint x="560" y="150" />
-        <di:waypoint x="560" y="-86" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Task_0o8cq4b_di" bpmnElement="Task_0o8cq4b">
-        <dc:Bounds x="670" y="150" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="SequenceFlow_0yr03g0_di" bpmnElement="SequenceFlow_0yr03g0">
-        <di:waypoint x="610" y="190" />
-        <di:waypoint x="670" y="190" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="TextAnnotation_1xhm70s_di" bpmnElement="TextAnnotation_1xhm70s">
-        <dc:Bounds x="633" y="-60" width="174" height="98" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Association_1rypdi4_di" bpmnElement="Association_1rypdi4">
-        <di:waypoint x="720" y="150" />
-        <di:waypoint x="720" y="38" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Task_0y7oxdy_di" bpmnElement="Task_0y7oxdy">
-        <dc:Bounds x="850" y="150" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="SequenceFlow_0nyt7mt_di" bpmnElement="SequenceFlow_0nyt7mt">
-        <di:waypoint x="770" y="190" />
-        <di:waypoint x="850" y="190" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="TextAnnotation_1njxwfx_di" bpmnElement="TextAnnotation_1njxwfx">
-        <dc:Bounds x="795" y="-203" width="210" height="113" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Association_0z52gkk_di" bpmnElement="Association_0z52gkk">
-        <di:waypoint x="900" y="150" />
-        <di:waypoint x="900" y="-90" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Task_1n0chjt_di" bpmnElement="Task_1n0chjt">
-        <dc:Bounds x="1020" y="150" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="SequenceFlow_0z0mshd_di" bpmnElement="SequenceFlow_0z0mshd">
-        <di:waypoint x="950" y="190" />
-        <di:waypoint x="1020" y="190" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="TextAnnotation_028k2rm_di" bpmnElement="TextAnnotation_028k2rm">
-        <dc:Bounds x="960" y="-40" width="220" height="98" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Association_001fx13_di" bpmnElement="Association_001fx13">
-        <di:waypoint x="1070" y="150" />
-        <di:waypoint x="1070" y="58" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Task_07ey6ny_di" bpmnElement="Task_07ey6ny">
-        <dc:Bounds x="1180" y="150" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="SequenceFlow_1bzzftb_di" bpmnElement="SequenceFlow_1bzzftb">
-        <di:waypoint x="1120" y="190" />
-        <di:waypoint x="1180" y="190" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="TextAnnotation_120nqrf_di" bpmnElement="TextAnnotation_120nqrf">
-        <dc:Bounds x="1119" y="-138" width="222" height="70" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Association_1tbsnqf_di" bpmnElement="Association_1tbsnqf">
-        <di:waypoint x="1230" y="150" />
-        <di:waypoint x="1230" y="-68" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="EndEvent_19p5qx1_di" bpmnElement="EndEvent_19p5qx1">
-        <dc:Bounds x="1332" y="172" width="36" height="36" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="SequenceFlow_1osxgna_di" bpmnElement="SequenceFlow_1osxgna">
-        <di:waypoint x="1280" y="190" />
-        <di:waypoint x="1332" y="190" />
-      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

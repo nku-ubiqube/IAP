@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn:process id="BPM_PROCESS_138_1587049709725" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_1koi6dn</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1koi6dn" sourceRef="StartEvent_1" targetRef="Task_1qn0j95" />
+    <bpmn:sequenceFlow id="SequenceFlow_005ldja" sourceRef="Task_1qn0j95" targetRef="Task_0gfw4s3" />
+    <bpmn:sequenceFlow id="SequenceFlow_01npwwp" sourceRef="Task_0gfw4s3" targetRef="Task_09eecyn" />
+    <bpmn:sequenceFlow id="SequenceFlow_13nw4o0" sourceRef="Task_09eecyn" targetRef="Task_06t6yk0" />
+    <bpmn:sequenceFlow id="SequenceFlow_0jsz8ai" sourceRef="Task_06t6yk0" targetRef="Task_0kzc3p8" />
+    <bpmn:endEvent id="EndEvent_1siwqbg">
+      <bpmn:incoming>SequenceFlow_1s0f6cw</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1s0f6cw" sourceRef="Task_0kzc3p8" targetRef="EndEvent_1siwqbg" />
+    <bpmn:serviceTask id="Task_1qn0j95" name="Public Cloud VNF Management">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/UBIA138?serviceName=Process%2FIAP_Public_Cloud%2FAWS%2FInstance_Management%2FManage_VNF_on_AWS&amp;processName=Process%2FIAP_Public_Cloud%2FAWS_WF%2FProcess_CREATE</camunda:inputParameter>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODcwNDkwMTAsImx2bCI6IjEiLCJleHAiOjE1ODcxMzU0MTB9.T2Ahh3CHI9ykFGO9jXZCrE7FVWmyFHywSIui9a_i4M_fuyMXfiWNkJUG6pJY2axc6Wa1BqXYQWH2rt24tMGZ9w</camunda:entry>
+                <camunda:entry key="Accept">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="payload">{"InstanceType":"c5.large","security_group":"sg-e8a77390","SubnetId":"subnet-abffcfe2","device_ip_address":"3.115.192.248","lan_ip":"10.1.0.191"}</camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1koi6dn</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_005ldja</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_0gfw4s3" name="uCPE VNF Management">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/UBIA138?serviceName=Process%2FENEA%2FVNF_Management%2FVNF_Management&amp;processName=Process%2FENEA%2FVNF_Management%2FProcess_Create_new_VNF</camunda:inputParameter>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODcwNDkwMTAsImx2bCI6IjEiLCJleHAiOjE1ODcxMzU0MTB9.T2Ahh3CHI9ykFGO9jXZCrE7FVWmyFHywSIui9a_i4M_fuyMXfiWNkJUG6pJY2axc6Wa1BqXYQWH2rt24tMGZ9w</camunda:entry>
+                <camunda:entry key="Accept">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="payload">{"exec_delay":"30","manufacturer_id":"14020601","model_id":"14020601","device_ip_address":"10.31.1.213","login":"root","password":"$ubiqube","new_password":"$ubiqube","vnf_descriptor":"13d72077-4e4f-11ea-81dc-005056b2c593","ucpe_devices":"1010","device_id":"UBI552","vnf_name":"flexiWAN_VNF","nics_1_id":"LAN","nics_1_type":"Dpdk","nics_1_interfacename":"lan_rb","nics_2_id":"WAN","nics_2_type":"Dpdk","nics_2_interfacename":"svc_br"}</camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_005ldja</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_01npwwp</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_09eecyn" name="uCPE VNF Management">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/UBIA138?serviceName=Process%2FENEA%2FVNF_Management%2FVNF_Management&amp;processName=Process%2FENEA%2FVNF_Management%2FProcess_Create_new_VNF</camunda:inputParameter>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODcwNDkwMTAsImx2bCI6IjEiLCJleHAiOjE1ODcxMzU0MTB9.T2Ahh3CHI9ykFGO9jXZCrE7FVWmyFHywSIui9a_i4M_fuyMXfiWNkJUG6pJY2axc6Wa1BqXYQWH2rt24tMGZ9w</camunda:entry>
+                <camunda:entry key="Accept">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="payload">{"device_id":"UBI552","exec_delay":"50","manufacturer_id":"14020601","model_id":"14020601","device_ip_address":"10.31.1.213","login":"root","password":"$ubiqube","new_password":"$ubiqube","vnf_descriptor":"3b29808a-5248-11ea-81dc-005056b2c593","ucpe_devices":"1010","vnf_name":"pfsense_VNF","nics_1_id":"lan","nics_1_type":"Dpdk","nics_1_interfacename":"lan_br","nics_2_id":"wan","nics_2_type":"Dpdk","nics_2_interfacename":"svc_br","nics_3_id":"mgmbr","nics_3_type":"Dpdk","nics_3_interfacename":"lan_br"}</camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_01npwwp</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_13nw4o0</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_06t6yk0" name="Manage Connectivity To Cloud">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/UBIA138?serviceName=Process%2FIAP_Router_Management%2FManage_Connectivity&amp;processName=Process%2FIAP_Router_Management%2FProcess_Branch_Router_Update</camunda:inputParameter>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODcwNDkwMTAsImx2bCI6IjEiLCJleHAiOjE1ODcxMzU0MTB9.T2Ahh3CHI9ykFGO9jXZCrE7FVWmyFHywSIui9a_i4M_fuyMXfiWNkJUG6pJY2axc6Wa1BqXYQWH2rt24tMGZ9w</camunda:entry>
+                <camunda:entry key="Accept">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="payload">{"device_id":"UBI485","next_hop":"192.168.0.10","service_fqdn":"add.iap.demo","service_private_ip_addr":"10.30.19.119","service_public_ip_addr":"3.115.192.248"}</camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_13nw4o0</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0jsz8ai</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_0kzc3p8" name="Manage Connectivity To Cloud">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url">http://api:8480/ubi-api-rest/orchestration/service/execute/UBIA138?serviceName=Process%2FIAP_Router_Management%2FManage_Connectivity&amp;processName=Process%2FIAP_Router_Management%2FProcess_Branch_Router_Update</camunda:inputParameter>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Authorization">Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuY3Jvb3QiLCJpYXQiOjE1ODcwNDkwMTAsImx2bCI6IjEiLCJleHAiOjE1ODcxMzU0MTB9.T2Ahh3CHI9ykFGO9jXZCrE7FVWmyFHywSIui9a_i4M_fuyMXfiWNkJUG6pJY2axc6Wa1BqXYQWH2rt24tMGZ9w</camunda:entry>
+                <camunda:entry key="Accept">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="payload">{"device_id":"UBI580","next_hop":"10.30.19.254","service_fqdn":"app.iap.demo","service_private_ip_addr":"10.30.19.119","service_public_ip_addr":"3.115.192.248"}</camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0jsz8ai</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1s0f6cw</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:textAnnotation id="TextAnnotation_178do64">
+      <bpmn:text>launch a security VNF on AWS</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0cpffc3" sourceRef="Task_1qn0j95" targetRef="TextAnnotation_178do64" />
+    <bpmn:textAnnotation id="TextAnnotation_12lp97u">
+      <bpmn:text>create a FlexiWAN VNF on the uCPE</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0d8j4eo" sourceRef="Task_0gfw4s3" targetRef="TextAnnotation_12lp97u" />
+    <bpmn:textAnnotation id="TextAnnotation_0ngus3g">
+      <bpmn:text>create a pfSense VNF on the uCPE</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1hu4pdy" sourceRef="Task_09eecyn" targetRef="TextAnnotation_0ngus3g" />
+    <bpmn:textAnnotation id="TextAnnotation_0icdjt1">
+      <bpmn:text>update DNS on the PNF Cisco 2900</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0ap40h0" sourceRef="Task_06t6yk0" targetRef="TextAnnotation_0icdjt1" />
+    <bpmn:textAnnotation id="TextAnnotation_0ctsmhc">
+      <bpmn:text>update the DNS on the VNF Cisco CSR on the uCPE</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1h6c7iz" sourceRef="Task_0kzc3p8" targetRef="TextAnnotation_0ctsmhc" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="BPM_PROCESS_138_1587049709725">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="202" y="222" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1koi6dn_di" bpmnElement="SequenceFlow_1koi6dn">
+        <di:waypoint x="238" y="240" />
+        <di:waypoint x="430" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_005ldja_di" bpmnElement="SequenceFlow_005ldja">
+        <di:waypoint x="480" y="280" />
+        <di:waypoint x="480" y="460" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_01npwwp_di" bpmnElement="SequenceFlow_01npwwp">
+        <di:waypoint x="530" y="500" />
+        <di:waypoint x="740" y="500" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_13nw4o0_di" bpmnElement="SequenceFlow_13nw4o0">
+        <di:waypoint x="790" y="460" />
+        <di:waypoint x="790" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0jsz8ai_di" bpmnElement="SequenceFlow_0jsz8ai">
+        <di:waypoint x="840" y="240" />
+        <di:waypoint x="1040" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_1siwqbg_di" bpmnElement="EndEvent_1siwqbg">
+        <dc:Bounds x="1072" y="482" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1s0f6cw_di" bpmnElement="SequenceFlow_1s0f6cw">
+        <di:waypoint x="1090" y="280" />
+        <di:waypoint x="1090" y="482" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_178do64_di" bpmnElement="TextAnnotation_178do64">
+        <dc:Bounds x="520" y="90" width="150" height="55" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0cpffc3_di" bpmnElement="Association_0cpffc3">
+        <di:waypoint x="518" y="200" />
+        <di:waypoint x="570" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_12lp97u_di" bpmnElement="TextAnnotation_12lp97u">
+        <dc:Bounds x="530" y="570" width="100" height="55" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0d8j4eo_di" bpmnElement="Association_0d8j4eo">
+        <di:waypoint x="521" y="540" />
+        <di:waypoint x="551" y="570" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0ngus3g_di" bpmnElement="TextAnnotation_0ngus3g">
+        <dc:Bounds x="860" y="570" width="100" height="55" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1hu4pdy_di" bpmnElement="Association_1hu4pdy">
+        <di:waypoint x="836" y="538" />
+        <di:waypoint x="876" y="570" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0icdjt1_di" bpmnElement="TextAnnotation_0icdjt1">
+        <dc:Bounds x="830" y="90" width="100" height="55" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0ap40h0_di" bpmnElement="Association_0ap40h0">
+        <di:waypoint x="820" y="200" />
+        <di:waypoint x="860" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0ctsmhc_di" bpmnElement="TextAnnotation_0ctsmhc">
+        <dc:Bounds x="1140" y="83" width="100" height="70" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1h6c7iz_di" bpmnElement="Association_1h6c7iz">
+        <di:waypoint x="1123" y="200" />
+        <di:waypoint x="1161" y="153" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_1587049288882_di" bpmnElement="Task_1qn0j95">
+        <dc:Bounds x="430" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1587049438936_di" bpmnElement="Task_0gfw4s3">
+        <dc:Bounds x="430" y="460" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1587049577336_di" bpmnElement="Task_09eecyn">
+        <dc:Bounds x="740" y="460" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1587049629257_di" bpmnElement="Task_06t6yk0">
+        <dc:Bounds x="740" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1587049683723_di" bpmnElement="Task_0kzc3p8">
+        <dc:Bounds x="1040" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
