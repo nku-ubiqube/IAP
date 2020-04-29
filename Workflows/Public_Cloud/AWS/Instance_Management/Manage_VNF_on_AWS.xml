@@ -363,4 +363,16 @@
       <displayName>update policy</displayName>
     </task>
   </process>
+<process name="Process/IAP_Public_Cloud/AWS/Instance_Management/Process_Configure_SDWAN">
+    <visibility>5</visibility>
+    <displayName>Configure SDWAN</displayName>
+    <icon/>
+    <poolId>0</poolId>
+    <allowSchedule>false</allowSchedule>
+    <type>CREATE</type>
+    <task name="Task_configure.php">
+      <processPath>/opt/fmc_repository/Process/IAP_Public_Cloud/AWS/Instance_Management/Process_Configure_SDWAN/Tasks/</processPath>
+      <displayName>configure</displayName>
+    </task>
+  </process>
 </ObjectDefinition>
