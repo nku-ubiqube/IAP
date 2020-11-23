@@ -1,0 +1,34 @@
+{*
+<variables>
+  <variable name="ints.0.mask" type="String" displayOrder="0" tableSizeFix="false" numberOfRowMax="0" maxLength="100">
+    <sections>
+      <section>ints</section>
+    </sections>
+  </variable>
+  <variable name="ints.0.gw" type="String" displayOrder="0" tableSizeFix="false" numberOfRowMax="0" maxLength="100">
+    <sections>
+      <section>ints</section>
+    </sections>
+  </variable>
+  <variable name="ints.0.name" type="String" displayOrder="0" tableSizeFix="false" numberOfRowMax="0" maxLength="100">
+    <sections>
+      <section>ints</section>
+    </sections>
+  </variable>
+  <variable name="ints.0.ip" type="String" displayOrder="0" tableSizeFix="false" numberOfRowMax="0" maxLength="100">
+    <sections>
+      <section>ints</section>
+    </sections>
+  </variable>
+</variables>
+*}
+{foreach $ints as $int }
+echo "NAME={$int.name}" > /etc/sysconfig/network-scripts/ifcfg-{$int.name}
+echo "DEVICE={$int.name}" >> /etc/sysconfig/network-scripts/ifcfg-{$int.name}
+echo "ONBOOT=yes" >> /etc/sysconfig/network-scripts/ifcfg-{$int.name}
+echo "BOOTPROTO=none" >> /etc/sysconfig/network-scripts/ifcfg-{$int.name}
+echo "IPADDR={$int.ip}" >> /etc/sysconfig/network-scripts/ifcfg-{$int.name}
+echo "NETMASK={$int.mask}" >> /etc/sysconfig/network-scripts/ifcfg-{$int.name}
+echo "GATEWAY={$int.gw}" >> /etc/sysconfig/network-scripts/ifcfg-{$int.name}
+shutdown -r 1
+{/foreach}
